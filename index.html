@@ -19,7 +19,7 @@
     <div class="nav-inner">
       <!-- Logo -->
       <a href="#" style="display:flex; align-items:center; text-decoration:none;">
-        <img src="assets/logos/short-logo.svg" alt="CodeWeavers" style="height:2rem; width:auto;" />
+        <img src="assets/logos/text-and-logo.svg" alt="CodeWeavers" style="height:5rem; width:auto;" />
       </a>
       <!-- Desktop links -->
       <div class="nav-links" style="display:flex; align-items:center; gap:2rem;">
@@ -72,6 +72,7 @@
   </div>
 
   <!-- ── Funnel Animation ── -->
+  <div id="fw-scroll-wrap" style="width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;">
   <div id="fw-stage" style="position:relative;display:grid;grid-template-columns:220px 1fr 220px;align-items:center;width:min(1100px,calc(100% - 4rem));margin:5rem auto 1.5rem;min-height:270px;">
 
     <!-- Bezier curve overlay (drawn by JS) -->
@@ -145,9 +146,12 @@
     .fw-label { font-size:.8125rem; font-weight:600; color:var(--text); line-height:1.3; }
     .fw-sub { font-size:.6875rem; color:var(--text-muted); margin-top:.0625rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:150px; }
     .fw-out.fw-show { opacity:1 !important; transform:translateX(0) !important; }
-    @media (max-width:700px) {
-      #fw-stage { grid-template-columns:1fr !important; gap:1.5rem !important; }
-      #fw-center { display:none !important; }
+    @media (max-width:768px) {
+      #fw-scroll-wrap { padding: 0 1.25rem; }
+      #fw-stage { width: 720px !important; margin: 3.5rem 0 1rem !important; min-height: 240px !important; }
+      .fw-card { padding: .5rem .75rem; }
+      .fw-label { font-size: .75rem; }
+      .fw-sub { font-size: .625rem; max-width: 120px; }
     }
   </style>
 
@@ -246,6 +250,7 @@
     })();
   </script>
 
+  </div><!-- /fw-scroll-wrap -->
   </div><!-- /hero-col -->
 
   <div class="hero-scroll-hint h-anim" style="position:relative;z-index:10;animation-delay:.85s;">
@@ -1001,7 +1006,7 @@
       <div>
         <!-- Footer logo -->
         <a href="#" style="display:flex; align-items:center; text-decoration:none; margin-bottom:1rem;">
-          <img src="assets/logos/text-and-logo.svg" alt="CodeWeavers" style="height:4.5rem; width:auto;" />
+          <img src="assets/logos/text-and-logo.svg" alt="CodeWeavers" style="height:7rem; width:auto;" />
         </a>
         <p style="color:var(--text-muted); font-size:.875rem; line-height:1.7; max-width:240px;">Custom software solutions for ambitious businesses.</p>
         <!-- Iconify social icons -->
