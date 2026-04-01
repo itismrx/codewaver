@@ -54,6 +54,7 @@
 <!-- ═══ HERO ═══ -->
 <section id="hero">
 
+  <div style="display:flex;flex-direction:column;align-items:center;width:100%;position:relative;z-index:10;">
   <div id="drag-headline">
     <div class="headline h-anim" style="animation-delay:.05s;">
       Building software that<br/><span class="lime">moves</span> business forward
@@ -69,6 +70,183 @@
       <a href="#work" class="btn-ghost" style="padding:.9rem 2rem; font-size:.9375rem;">View Our Work</a>
     </div>
   </div>
+
+  <!-- ── Funnel Animation ── -->
+  <div id="fw-stage" style="position:relative;display:grid;grid-template-columns:220px 1fr 220px;align-items:center;width:min(1100px,calc(100% - 4rem));margin:5rem auto 1.5rem;min-height:270px;">
+
+    <!-- Bezier curve overlay (drawn by JS) -->
+    <svg id="fw-curves" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1;overflow:visible;"></svg>
+    <!-- Animated particle -->
+    <div id="fw-dot" style="position:absolute;width:9px;height:9px;border-radius:50%;pointer-events:none;z-index:30;transform:translate(-50%,-50%);opacity:0;left:0;top:0;"></div>
+
+    <!-- LEFT: Inputs -->
+    <div id="fw-inputs" style="position:relative;z-index:2;display:flex;flex-direction:column;gap:.65rem;">
+      <div class="fw-card" id="fi-0">
+        <div class="fw-icon" style="background:rgba(96,165,250,.12);color:rgb(96,165,250);"><iconify-icon icon="mdi:email-outline" width="15"></iconify-icon></div>
+        <div><div class="fw-label">Email</div><div class="fw-sub">"Here are our requirements…"</div></div>
+      </div>
+      <div class="fw-card" id="fi-1">
+        <div class="fw-icon" style="background:rgba(167,139,250,.12);color:rgb(167,139,250);"><iconify-icon icon="mdi:file-document-outline" width="15"></iconify-icon></div>
+        <div><div class="fw-label">Brief</div><div class="fw-sub">brand-guidelines.pdf</div></div>
+      </div>
+      <div class="fw-card" id="fi-2">
+        <div class="fw-icon" style="background:rgba(52,211,153,.12);color:rgb(52,211,153);"><iconify-icon icon="mdi:web" width="15"></iconify-icon></div>
+        <div><div class="fw-label">Website</div><div class="fw-sub">www.old-site.com</div></div>
+      </div>
+      <div class="fw-card" id="fi-3">
+        <div class="fw-icon" style="background:rgba(249,115,22,.12);color:rgb(249,115,22);"><iconify-icon icon="mdi:image-outline" width="15"></iconify-icon></div>
+        <div><div class="fw-label">Mockup</div><div class="fw-sub">design-reference.fig</div></div>
+      </div>
+    </div>
+
+    <!-- CENTER: Processor box only (curves drawn by JS) -->
+    <div id="fw-center" style="position:relative;z-index:2;display:flex;align-items:center;justify-content:center;">
+      <div id="fw-processor" style="width:80px;height:80px;flex-shrink:0;border-radius:16px;border:1.5px solid var(--border);background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.07);display:flex;align-items:center;justify-content:center;position:relative;transition:box-shadow .35s,border-color .35s;">
+        <img src="assets/logos/short-logo.svg" style="height:32px;width:auto;" />
+        <div id="fw-glow" style="position:absolute;inset:-2px;border-radius:18px;background:radial-gradient(circle,rgba(184,224,64,.3) 0%,transparent 70%);opacity:0;pointer-events:none;transition:opacity .15s;"></div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Outputs -->
+    <div id="fw-outputs" style="position:relative;z-index:2;display:flex;flex-direction:column;gap:.65rem;">
+      <div class="fw-card fw-out" id="fo-0" style="opacity:0;transform:translateX(10px);">
+        <div class="fw-icon" style="background:rgba(227,76,38,.12);color:rgb(227,76,38);"><iconify-icon icon="mdi:language-html5" width="15"></iconify-icon></div>
+        <div><div class="fw-label">index.html</div><div class="fw-sub">Semantic markup</div></div>
+      </div>
+      <div class="fw-card fw-out" id="fo-1" style="opacity:0;transform:translateX(10px);">
+        <div class="fw-icon" style="background:rgba(104,136,245,.12);color:rgb(104,136,245);"><iconify-icon icon="mdi:language-css3" width="15"></iconify-icon></div>
+        <div><div class="fw-label">styles.css</div><div class="fw-sub">Pixel-perfect design</div></div>
+      </div>
+      <div class="fw-card fw-out" id="fo-2" style="opacity:0;transform:translateX(10px);">
+        <div class="fw-icon" style="background:rgba(240,219,79,.12);color:rgb(240,219,79);"><iconify-icon icon="mdi:language-javascript" width="15"></iconify-icon></div>
+        <div><div class="fw-label">app.js</div><div class="fw-sub">Clean, tested logic</div></div>
+      </div>
+      <div class="fw-card fw-out" id="fo-3" style="opacity:0;transform:translateX(10px);">
+        <div class="fw-icon" style="background:rgba(200,240,96,.12);color:rgb(200,240,96);"><iconify-icon icon="mdi:rocket-launch-outline" width="15"></iconify-icon></div>
+        <div><div class="fw-label">Live Site</div><div class="fw-sub">Deployed &amp; ready</div></div>
+      </div>
+    </div>
+
+  </div>
+
+  <style>
+    .fw-card {
+      display:flex; align-items:center; gap:.6rem;
+      padding:.6rem .875rem; border-radius:10px;
+      border:1px solid var(--border); background:#fff;
+      box-shadow:0 1px 4px rgba(0,0,0,.05);
+      transition:border-color .3s, box-shadow .3s, background .3s, opacity .45s ease, transform .45s ease;
+    }
+    .fw-card.fw-active {
+      border-color:var(--lime-hover);
+      box-shadow:0 0 0 3px rgba(184,224,64,.18), 0 2px 8px rgba(0,0,0,.07);
+    }
+    .fw-icon { width:30px; height:30px; border-radius:7px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .fw-label { font-size:.8125rem; font-weight:600; color:var(--text); line-height:1.3; }
+    .fw-sub { font-size:.6875rem; color:var(--text-muted); margin-top:.0625rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:150px; }
+    .fw-out.fw-show { opacity:1 !important; transform:translateX(0) !important; }
+    @media (max-width:700px) {
+      #fw-stage { grid-template-columns:1fr !important; gap:1.5rem !important; }
+      #fw-center { display:none !important; }
+    }
+  </style>
+
+  <script>
+    (function() {
+      var stage   = document.getElementById('fw-stage');
+      var dot     = document.getElementById('fw-dot');
+      var proc    = document.getElementById('fw-processor');
+      var glow    = document.getElementById('fw-glow');
+      var svgEl   = document.getElementById('fw-curves');
+      var inputs  = [0,1,2,3].map(function(i){ return document.getElementById('fi-'+i); });
+      var outputs = [0,1,2,3].map(function(i){ return document.getElementById('fo-'+i); });
+      var cols    = [{r:96,g:165,b:250},{r:167,g:139,b:250},{r:52,g:211,b:153},{r:249,g:115,b:22}];
+      var idx = 0, busy = false;
+
+      function drawCurves() {
+        var sr = stage.getBoundingClientRect();
+        var pr = proc.getBoundingClientRect();
+        var pLx = pr.left - sr.left, pRx = pr.right - sr.left;
+        var pCy = pr.top + pr.height / 2 - sr.top;
+        svgEl.setAttribute('viewBox', '0 0 ' + sr.width + ' ' + sr.height);
+        svgEl.innerHTML = '';
+        var NS = 'http://www.w3.org/2000/svg';
+        function addCurve(x1, y1, x2, y2) {
+          var dx = x2 - x1;
+          var p = document.createElementNS(NS, 'path');
+          p.setAttribute('d', 'M'+x1+' '+y1+' C'+(x1+dx*.55)+' '+y1+','+(x2-dx*.3)+' '+y2+','+x2+' '+y2);
+          p.setAttribute('fill', 'none');
+          p.setAttribute('stroke', '#c0bb9e');
+          p.setAttribute('stroke-width', '1.3');
+          p.setAttribute('stroke-dasharray', '4 5');
+          svgEl.appendChild(p);
+        }
+        inputs.forEach(function(el) {
+          var r = el.getBoundingClientRect();
+          addCurve(r.right - sr.left, r.top + r.height/2 - sr.top, pLx, pCy);
+        });
+        outputs.forEach(function(el) {
+          var r = el.getBoundingClientRect();
+          addCurve(pRx, pCy, r.left - sr.left, r.top + r.height/2 - sr.top);
+        });
+      }
+
+      function mid(el) {
+        var er = el.getBoundingClientRect(), sr = stage.getBoundingClientRect();
+        return { x: er.left + er.width/2 - sr.left, y: er.top + er.height/2 - sr.top };
+      }
+      function ease(t) { return t<.5?2*t*t:-1+(4-2*t)*t; }
+      function fly(from, to, c, dur, done) {
+        dot.style.background = 'rgb('+c.r+','+c.g+','+c.b+')';
+        dot.style.boxShadow  = '0 0 10px rgb('+c.r+','+c.g+','+c.b+'),0 0 22px rgba('+c.r+','+c.g+','+c.b+',.4)';
+        dot.style.left = from.x+'px'; dot.style.top = from.y+'px'; dot.style.opacity='1';
+        var t0 = performance.now();
+        (function tick(now) {
+          var t = Math.min((now-t0)/dur,1), e = ease(t);
+          dot.style.left = (from.x+(to.x-from.x)*e)+'px';
+          dot.style.top  = (from.y+(to.y-from.y)*e)+'px';
+          if (t<1) requestAnimationFrame(tick);
+          else { dot.style.opacity='0'; if(done) done(); }
+        })(performance.now());
+      }
+
+      function step() {
+        if (busy) return; busy = true;
+        var i = idx;
+        inputs.forEach(function(el,j){ el.classList.toggle('fw-active', j===i); });
+        var c = cols[i];
+        fly(mid(inputs[i]), mid(proc), c, 520, function() {
+          glow.style.transition='opacity .1s'; glow.style.opacity='1';
+          proc.style.boxShadow   = '0 0 0 4px rgba('+c.r+','+c.g+','+c.b+',.2),0 4px 20px rgba(0,0,0,.1)';
+          proc.style.borderColor = 'var(--lime-hover)';
+          setTimeout(function() {
+            glow.style.transition='opacity .5s'; glow.style.opacity='0';
+            proc.style.boxShadow=''; proc.style.borderColor='';
+            fly(mid(proc), mid(outputs[i]), c, 420, function() {
+              outputs[i].classList.add('fw-show');
+              inputs[i].classList.remove('fw-active');
+              idx = (idx+1)%4; busy = false;
+              if (idx===0) {
+                setTimeout(function(){
+                  outputs.forEach(function(o){ o.classList.remove('fw-show'); });
+                  setTimeout(step, 750);
+                }, 3000);
+              } else { setTimeout(step, 850); }
+            });
+          }, 280);
+        });
+      }
+
+      // Draw curves after fonts/icons settle, then start animation
+      setTimeout(function() {
+        drawCurves();
+        window.addEventListener('resize', drawCurves);
+        setTimeout(step, 600);
+      }, 400);
+    })();
+  </script>
+
+  </div><!-- /hero-col -->
 
   <div class="hero-scroll-hint h-anim" style="position:relative;z-index:10;animation-delay:.85s;">
     <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M3 7l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>

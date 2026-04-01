@@ -151,6 +151,7 @@ body {
 #hero {
   position: relative; overflow: hidden;
   min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  padding-bottom: 3rem;
   background-color: #f9f9f9;
   background-image:
     linear-gradient(rgba(0,0,0,.045) 1px, transparent 1px),
