@@ -77,6 +77,8 @@
 
 </section>
 
+<div class="section-divider"></div>
+
 <!-- ═══ STATS ═══ -->
 <section id="stats">
   <div class="container">
@@ -100,6 +102,8 @@
     </div>
   </div>
 </section>
+
+<div class="section-divider"></div>
 
 <!-- ═══ SERVICES ═══ -->
 <section class="section" id="services">
@@ -344,6 +348,8 @@
   </div>
 </section>
 
+<div class="section-divider"></div>
+
 <!-- ═══ WORK ═══ -->
 <section class="section" id="work">
   <div class="container">
@@ -406,6 +412,8 @@
     </div>
   </div>
 </section>
+
+<div class="section-divider"></div>
 
 <!-- ═══ PROCESS — horizontal timeline ═══ -->
 <section class="section" id="process" style="padding-bottom:0;">
@@ -490,6 +498,8 @@
   </div>
 </section>
 
+<div class="section-divider"></div>
+
 <!-- ═══ ABOUT ═══ -->
 <section class="section" id="about">
   <div class="container">
@@ -558,6 +568,8 @@
     </div>
   </div>
 </section>
+
+<div class="section-divider"></div>
 
 <!-- ═══ TESTIMONIALS ═══ -->
 <section class="section" id="testimonials">
@@ -740,48 +752,59 @@
 
 <!-- ═══ CTA DARK ═══ -->
 <section id="contact">
-  <!-- Left orbit decoration -->
-  <div class="orbit-deco left">
-    <svg width="220" height="320" viewBox="0 0 220 320" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <ellipse cx="110" cy="160" rx="90" ry="150" stroke="rgba(200,240,96,0.18)" stroke-width="1" transform="rotate(-20 110 160)"/>
-      <ellipse cx="110" cy="160" rx="60" ry="110" stroke="rgba(200,240,96,0.12)" stroke-width="1" transform="rotate(-20 110 160)"/>
-      <circle cx="42" cy="90" r="5" fill="rgba(200,240,96,0.9)">
-        <animateMotion dur="7s" repeatCount="indefinite">
-          <mpath href="#orbit1"/>
-        </animateMotion>
-      </circle>
-      <path id="orbit1" d="M 110 10 a 90 150 -20 1 1 0.01 0" fill="none" transform="rotate(-20 110 160)"/>
-    </svg>
-  </div>
 
-  <!-- Right orbit decoration -->
-  <div class="orbit-deco right">
-    <svg width="220" height="320" viewBox="0 0 220 320" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <ellipse cx="110" cy="160" rx="90" ry="150" stroke="rgba(200,240,96,0.18)" stroke-width="1" transform="rotate(20 110 160)"/>
-      <ellipse cx="110" cy="160" rx="60" ry="110" stroke="rgba(200,240,96,0.12)" stroke-width="1" transform="rotate(20 110 160)"/>
-      <circle r="5" fill="rgba(200,240,96,0.9)">
-        <animateMotion dur="9s" repeatCount="indefinite" begin="3s">
-          <mpath href="#orbit2"/>
-        </animateMotion>
-      </circle>
-      <path id="orbit2" d="M 110 10 a 90 150 20 1 0 0.01 0" fill="none" transform="rotate(20 110 160)"/>
-    </svg>
-  </div>
+  <!-- Particle globe -->
+  <canvas id="globe-canvas"></canvas>
+
+  <!-- Diagonal light lines -->
+  <div class="cta-light-line line-1"></div>
+  <div class="cta-light-line line-2"></div>
 
   <div class="container">
     <div class="cta-dark-inner">
       <h2>Ready to move<br/><span class="lime-text">faster?</span></h2>
 
-      <!-- Avatar stack with real photos -->
+      <!-- Indian company logo stack -->
       <div class="cta-trust">
-        <div class="avatar-stack">
-          <div class="av-circle"><img src="https://randomuser.me/api/portraits/men/1.jpg" alt=""/></div>
-          <div class="av-circle"><img src="https://randomuser.me/api/portraits/women/5.jpg" alt=""/></div>
-          <div class="av-circle"><img src="https://randomuser.me/api/portraits/women/46.jpg" alt=""/></div>
-          <div class="av-circle"><img src="https://randomuser.me/api/portraits/men/22.jpg" alt=""/></div>
-          <div class="av-circle plus">+50</div>
+        <div class="logo-stack">
+          <!-- Razorpay -->
+          <div class="logo-circle lc-razorpay" title="Razorpay">
+            <svg viewBox="0 0 40 40" width="26" height="26" fill="none">
+              <path d="M10 30 L22 10 L34 18 L20 38Z" fill="#3395FF"/>
+              <path d="M22 10 L34 18 L28 14Z" fill="#1A6FD4"/>
+            </svg>
+          </div>
+          <!-- Swiggy -->
+          <div class="logo-circle lc-swiggy" title="Swiggy">
+            <svg viewBox="0 0 40 40" width="26" height="26" fill="none">
+              <circle cx="20" cy="18" r="9" fill="#FC8019"/>
+              <path d="M14 24 Q20 33 26 24" stroke="#FC8019" stroke-width="3" fill="none" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <!-- CRED -->
+          <div class="logo-circle lc-cred" title="CRED">
+            <svg viewBox="0 0 40 40" width="26" height="26" fill="none">
+              <rect x="8" y="8" width="24" height="24" rx="4" fill="#1A1A2E"/>
+              <text x="20" y="26" text-anchor="middle" font-size="11" font-weight="800" fill="#FFD700" font-family="sans-serif">C</text>
+            </svg>
+          </div>
+          <!-- Zepto -->
+          <div class="logo-circle lc-zepto" title="Zepto">
+            <svg viewBox="0 0 40 40" width="26" height="26" fill="none">
+              <circle cx="20" cy="20" r="12" fill="#8B2FC9"/>
+              <text x="20" y="25" text-anchor="middle" font-size="11" font-weight="800" fill="#fff" font-family="sans-serif">Z</text>
+            </svg>
+          </div>
+          <!-- Meesho -->
+          <div class="logo-circle lc-meesho" title="Meesho">
+            <svg viewBox="0 0 40 40" width="26" height="26" fill="none">
+              <circle cx="20" cy="20" r="12" fill="#F43397"/>
+              <text x="20" y="25" text-anchor="middle" font-size="10" font-weight="800" fill="#fff" font-family="sans-serif">M</text>
+            </svg>
+          </div>
+          <div class="logo-circle plus">+50</div>
         </div>
-        <p class="cta-trust-text">Since 2017, 50+ companies trusted CodeWeavers</p>
+        <p class="cta-trust-text">Since 2017, 50+ Indian companies trusted CodeWeavers</p>
       </div>
 
       <a href="mailto:hello@thecodeweavers.com" class="btn-cta-oval">

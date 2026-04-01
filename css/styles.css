@@ -485,6 +485,7 @@ body {
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   font-weight: 800; color: #fff;
   letter-spacing: -.03em; line-height: 1.05;
+  text-align: center; max-width: 700px;
 }
 .cta-dark-inner h2 .lime-text { color: var(--lime); }
 .cta-trust { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: center; }
@@ -569,3 +570,100 @@ footer { border-top: 1px solid var(--border); padding: 3rem 0 2rem; background: 
   border: none;
   cursor: pointer;
 }
+
+/* ── SECTION DIVIDERS ── */
+.section-divider {
+  height: 1px;
+  margin: 0 4rem;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(28, 26, 23, 0.10) 20%,
+    rgba(28, 26, 23, 0.14) 50%,
+    rgba(28, 26, 23, 0.10) 80%,
+    transparent 100%
+  );
+}
+
+/* ── CTA DARK — updated with margins, globe, lines ── */
+#contact {
+  margin: 0 2rem;
+  border-radius: 1.5rem;
+}
+
+/* ── CANVAS GLOBE ── */
+#globe-canvas {
+  position: absolute;
+  right: -60px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.65;
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+/* ── DIAGONAL LIGHT LINES ── */
+.cta-light-line {
+  position: absolute;
+  width: 1px;
+  height: 160%;
+  top: -30%;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(200, 240, 96, 0.10) 35%,
+    rgba(200, 240, 96, 0.14) 50%,
+    rgba(200, 240, 96, 0.10) 65%,
+    transparent 100%
+  );
+}
+.cta-light-line.line-1 {
+  left: 22%;
+  transform: rotate(22deg);
+  transform-origin: center center;
+}
+.cta-light-line.line-2 {
+  left: 38%;
+  transform: rotate(-18deg);
+  transform-origin: center center;
+}
+
+/* ── LOGO STACK ── */
+.logo-stack { display: flex; }
+.logo-circle {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(200, 240, 96, 0.35);
+  margin-left: -.75rem;
+  position: relative;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.logo-circle:first-child { margin-left: 0; }
+.logo-circle img {
+  width: 68%;
+  height: 68%;
+  object-fit: contain;
+  display: block;
+}
+.logo-circle.plus {
+  background: rgba(200, 240, 96, 0.20);
+  font-size: .55rem;
+  border-color: rgba(200, 240, 96, 0.5);
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 700;
+  color: #c8f060;
+}
+
+/* company-specific circle backgrounds */
+.lc-razorpay { background: #f0f7ff; }
+.lc-swiggy   { background: #fff5ee; }
+.lc-cred     { background: #0f0f1a; }
+.lc-zepto    { background: #f5eeff; }
+.lc-meesho   { background: #fff0f8; }
