@@ -150,7 +150,7 @@ body {
 /* ── HERO ── */
 #hero {
   position: relative; overflow: hidden;
-  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
   padding-bottom: 3rem;
   background-color: #f9f9f9;
   background-image:
@@ -611,6 +611,15 @@ footer { border-top: 1px solid var(--border); padding: 3rem 0 2rem; background: 
   .ph-step-top               { height: 130px !important; padding: .875rem 1rem 1rem !important; }
   .ph-step-bottom            { height: 130px !important; }
   .ph-step-name              { font-size: .75rem !important; }
+
+  /* Hero: top clearance for fixed nav + constrain headline width */
+  #hero                      { padding-top: 5rem !important; }
+  #drag-headline             { width: 100% !important; padding: 0 1.25rem !important; }
+
+  /* Services: tighter side gutters + reduce card internal padding */
+  .container                 { padding: 0 1rem !important; }
+  .seg-card                  { padding: 1.25rem !important; }
+  .seg-illus                 { padding: .75rem !important; margin-bottom: 1.25rem !important; }
 }
 @media (min-width: 769px) {
   .nav-burger { display: none !important; }
