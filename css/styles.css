@@ -528,6 +528,57 @@ footer { border-top: 1px solid var(--border); padding: 3rem 0 2rem; background: 
 }
 .social-btn:hover { border-color: #bbb; color: var(--text); background: var(--surface-2); }
 
+/* ── THREE SEGMENTS ── */
+.segments-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+.seg-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: #fff;
+  transition: box-shadow .25s, border-color .25s;
+}
+.seg-card:hover {
+  box-shadow: 0 4px 24px rgba(0,0,0,.07);
+  border-color: #c8c3b4;
+}
+.seg-body { margin-bottom: 2rem; }
+.seg-title {
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.35;
+  margin-bottom: .875rem;
+}
+.seg-desc {
+  font-size: .9rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+.seg-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .65rem 1.25rem;
+  border-radius: 8px;
+  background: var(--text);
+  color: #fff;
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: .875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background .2s, transform .15s;
+  align-self: flex-start;
+}
+.seg-btn:hover { background: #333; transform: translateY(-1px); }
+
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   .nav-links, .nav-cta       { display: none !important; }
@@ -543,6 +594,7 @@ footer { border-top: 1px solid var(--border); padding: 3rem 0 2rem; background: 
   .about-simon               { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
   .about-simon-right         { display: none !important; }
   .testi-col:nth-child(3)    { display: none !important; }
+  .segments-grid             { grid-template-columns: 1fr !important; }
   .footer-grid               { grid-template-columns: 1fr 1fr !important; gap: 2rem !important; }
   .process-h-steps           { grid-template-columns: 1fr 1fr !important; }
   .ph-step-top               { height: 130px !important; padding: .875rem 1rem 1rem !important; }
