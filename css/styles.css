@@ -740,3 +740,12 @@ footer { border-top: 1px solid var(--border); padding: 3rem 0 2rem; background: 
 .lc-cred     { background: #0f0f1a; }
 .lc-zepto    { background: #f5eeff; }
 .lc-meesho   { background: #fff0f8; }
+
+/* ── REAL LOGO CIRCLES — fit client logos cleanly ── */
+.logo-circle img {
+  width: 78%;
+  height: 78%;
+  object-fit: contain;
+  display: block;
+  border-radius: 0;
+}
