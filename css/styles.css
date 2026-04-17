@@ -749,3 +749,67 @@ footer { border-top: 1px solid var(--border); padding: 3rem 0 2rem; background: 
   display: block;
   border-radius: 0;
 }
+
+/* ── CLIENTS & PARTNERS MARQUEE ── */
+.clients-marquee-wrap {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 10%, #000 90%, transparent 100%);
+          mask-image: linear-gradient(to right, transparent 0%, #000 10%, #000 90%, transparent 100%);
+}
+
+.clients-track {
+  display: flex;
+  gap: 1.25rem;
+  width: max-content;
+  will-change: transform;
+}
+
+.track-fwd { animation: marquee-fwd 38s linear infinite; }
+.track-rev { animation: marquee-rev 32s linear infinite; }
+
+@keyframes marquee-fwd {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes marquee-rev {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+.clients-marquee-wrap:hover .clients-track {
+  animation-play-state: paused;
+}
+
+.client-logo-chip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: .875rem 1.75rem;
+  height: 5rem;
+  min-width: 10rem;
+  flex-shrink: 0;
+  transition: border-color .2s, box-shadow .2s, transform .2s;
+}
+
+.client-logo-chip:hover {
+  border-color: #c0bb9e;
+  box-shadow: 0 6px 20px rgba(0,0,0,.07);
+  transform: translateY(-2px);
+}
+
+.client-logo-chip img {
+  height: 2.25rem;
+  width: auto;
+  max-width: 9rem;
+  object-fit: contain;
+  display: block;
+  filter: grayscale(15%);
+  transition: filter .25s;
+}
+
+.client-logo-chip:hover img {
+  filter: grayscale(0%);
+}
