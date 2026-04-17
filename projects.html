@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Projects — The Code Weavers</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* Projects page: 3-column grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    @media (max-width: 900px) {
+      .projects-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .projects-grid { grid-template-columns: 1fr; }
+    }
+    /* View Details button */
+    .work-card-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      margin: 0 1.5rem 1.5rem;
+      padding: .6rem 1.25rem;
+      border-radius: 6.25rem;
+      background: var(--text);
+      color: #fff;
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: .8125rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background .2s, transform .15s;
+    }
+    .work-card-btn:hover { background: #333; transform: translateY(-1px); }
+    /* Breadcrumb */
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: .8125rem;
+      color: var(--text-muted);
+      margin-bottom: 3rem;
+    }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: color .2s; }
+    .breadcrumb a:hover { color: var(--text); }
+    .breadcrumb .sep { opacity: .4; }
+    .breadcrumb .current { color: var(--text); font-weight: 600; }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAVIGATION ═══ -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <!-- Logo -->
+      <a href="index.html" style="display:flex; align-items:center; text-decoration:none;">
+        <img src="assets/logos/text-and-logo.svg" alt="CodeWeavers" style="height:5rem; width:auto;" />
+      </a>
+      <!-- Desktop links -->
+      <div class="nav-links" style="display:flex; align-items:center; gap:2rem;">
+        <a href="index.html#services" class="nav-link">Services</a>
+        <a href="index.html#work" class="nav-link">Work</a>
+        <a href="index.html#process" class="nav-link">Process</a>
+        <a href="index.html#about" class="nav-link">About</a>
+      </div>
+      <div style="display:flex; align-items:center; gap:.875rem;">
+        <div class="nav-divider nav-cta"></div>
+        <a href="index.html#contact" class="nav-btn-delos nav-cta">Start a Project</a>
+        <button id="burger" class="nav-burger" onclick="openMobileNav()">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 5h16M3 11h16M3 17h16" stroke="var(--text)" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile nav -->
+<div id="mobile-nav">
+  <button class="mobile-nav-close" onclick="closeMobileNav()">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="var(--text)" stroke-width="2" stroke-linecap="round"/></svg>
+  </button>
+  <a href="index.html#services">Services</a>
+  <a href="index.html#work">Work</a>
+  <a href="index.html#process">Process</a>
+  <a href="index.html#about">About</a>
+  <a href="index.html#contact" class="btn-primary">Start a Project</a>
+</div>
+
+<!-- ═══ PROJECTS CATALOG ═══ -->
+<section class="section" id="projects" style="padding-top:9rem;">
+  <div class="container">
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="sep">›</span>
+      <span class="current">All Projects</span>
+    </nav>
+
+    <!-- Section header -->
+    <div style="max-width:580px; margin-bottom:3.5rem;">
+      <span class="section-tag">All Projects</span>
+      <h2 class="section-heading">Our complete <span class="lime">product catalog</span></h2>
+      <p style="color:var(--text-muted); margin-top:1rem; font-size:.9375rem; line-height:1.7;">From AI-powered engineering tools to smart city solutions, we build end-to-end digital products that solve real operational problems across industries.</p>
+    </div>
+
+    <!-- 3-column project grid -->
+    <div class="projects-grid">
+
+      <!-- 1. Feature Extractor -->
+      <div class="work-card">
+        <div style="background:linear-gradient(145deg,#e8f5c0,#d4eea0,#c8f060); height:200px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
+          <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(90,122,0,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(90,122,0,.06) 1px,transparent 1px);background-size:24px 24px;"></div>
+          <svg viewBox="0 0 200 130" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:relative;z-index:1;width:86%;max-width:200px;">
+            <!-- Drawing sheet -->
+            <rect x="8" y="8" width="96" height="114" rx="5" fill="#fff" stroke="#b8d840" stroke-width="1.2"/>
+            <!-- Title block -->
+            <rect x="8" y="96" width="96" height="26" rx="0" fill="#e8f5c0" stroke="#b8d840" stroke-width=".8"/>
+            <rect x="8" y="96" width="96" height="1" fill="#b8d840"/>
+            <line x1="54" y1="96" x2="54" y2="122" stroke="#b8d840" stroke-width=".8"/>
+            <rect x="13" y="101" width="28" height="3" rx="1.5" fill="#aac840" opacity=".6"/>
+            <rect x="13" y="107" width="36" height="3" rx="1.5" fill="#c0d860" opacity=".5"/>
+            <rect x="13" y="113" width="30" height="3" rx="1.5" fill="#c0d860" opacity=".5"/>
+            <rect x="58" y="101" width="22" height="3" rx="1.5" fill="#aac840" opacity=".6"/>
+            <rect x="58" y="107" width="32" height="3" rx="1.5" fill="#c0d860" opacity=".5"/>
+            <!-- Part outline -->
+            <rect x="20" y="18" width="72" height="46" rx="4" fill="none" stroke="#5a7a00" stroke-width="1.2"/>
+            <rect x="32" y="28" width="48" height="26" rx="3" fill="rgba(200,240,96,.2)" stroke="#5a7a00" stroke-width=".8" stroke-dasharray="3 2"/>
+            <!-- Dimension lines -->
+            <line x1="20" y1="72" x2="92" y2="72" stroke="#7a9a20" stroke-width=".8"/>
+            <line x1="20" y1="70" x2="20" y2="74" stroke="#7a9a20" stroke-width=".8"/>
+            <line x1="92" y1="70" x2="92" y2="74" stroke="#7a9a20" stroke-width=".8"/>
+            <text x="56" y="70.5" font-size="5.5" fill="#5a7a00" font-family="monospace" text-anchor="middle">72.00</text>
+            <!-- GD&T -->
+            <rect x="32" y="80" width="22" height="9" rx="2" fill="none" stroke="#5a7a00" stroke-width=".8"/>
+            <line x1="43" y1="80" x2="43" y2="89" stroke="#5a7a00" stroke-width=".8"/>
+            <circle cx="37.5" cy="84.5" r="2.5" fill="none" stroke="#5a7a00" stroke-width=".8"/>
+            <text x="46" y="87" font-size="5" fill="#5a7a00" font-family="monospace">0.05</text>
+            <!-- Arrow to BOM -->
+            <path d="M108 64 L124 50" stroke="#3d7200" stroke-width="1.2" stroke-dasharray="3 2"/>
+            <path d="M121 47 L127 51 L121 55" stroke="#3d7200" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- BOM Table -->
+            <rect x="124" y="14" width="66" height="100" rx="5" fill="#fff" stroke="#b8d840" stroke-width="1.2"/>
+            <rect x="124" y="14" width="66" height="14" rx="5" fill="#c8f060"/>
+            <rect x="124" y="22" width="66" height="6" rx="0" fill="#c8f060"/>
+            <text x="157" y="23.5" font-size="6" fill="#3d5200" font-family="monospace" font-weight="700" text-anchor="middle">BOM</text>
+            <line x1="124" y1="28" x2="190" y2="28" stroke="#b8d840" stroke-width=".7"/>
+            <line x1="148" y1="28" x2="148" y2="114" stroke="#e0ecc0" stroke-width=".7"/>
+            <!-- Rows -->
+            <rect x="127" y="31" width="17" height="4" rx="1.5" fill="#e8f5c0"/>
+            <rect x="150" y="31" width="34" height="4" rx="1.5" fill="#f0f5e0"/>
+            <line x1="124" y1="38" x2="190" y2="38" stroke="#e0ecc0" stroke-width=".7"/>
+            <rect x="127" y="41" width="14" height="4" rx="1.5" fill="#e8f5c0"/>
+            <rect x="150" y="41" width="28" height="4" rx="1.5" fill="#f0f5e0"/>
+            <line x1="124" y1="48" x2="190" y2="48" stroke="#e0ecc0" stroke-width=".7"/>
+            <rect x="127" y="51" width="17" height="4" rx="1.5" fill="#e8f5c0"/>
+            <rect x="150" y="51" width="32" height="4" rx="1.5" fill="#f0f5e0"/>
+            <line x1="124" y1="58" x2="190" y2="58" stroke="#e0ecc0" stroke-width=".7"/>
+            <rect x="127" y="61" width="12" height="4" rx="1.5" fill="#e8f5c0"/>
+            <rect x="150" y="61" width="26" height="4" rx="1.5" fill="#f0f5e0"/>
+            <line x1="124" y1="68" x2="190" y2="68" stroke="#e0ecc0" stroke-width=".7"/>
+            <rect x="127" y="71" width="16" height="4" rx="1.5" fill="#e8f5c0"/>
+            <rect x="150" y="71" width="30" height="4" rx="1.5" fill="#f0f5e0"/>
+            <!-- Scan sweep line -->
+            <rect x="124" y="46" width="66" height="1.5" rx=".75" fill="#c8f060" opacity=".8"/>
+            <!-- AI badge -->
+            <rect x="128" y="82" width="56" height="22" rx="5" fill="#1c1a17"/>
+            <text x="156" y="91" font-size="5.5" fill="#c8f060" font-family="monospace" font-weight="700" text-anchor="middle">AI ENGINE</text>
+            <text x="156" y="99" font-size="5" fill="rgba(200,240,96,.6)" font-family="monospace" text-anchor="middle">EXTRACTING…</text>
+          </svg>
+        </div>
+        <div class="work-card-body">
+          <div class="work-tag">AI / Engineering</div>
+          <h3>Feature Extractor</h3>
+          <p>AI that reads engineering drawings and automatically extracts BOM tables, dimensions, tolerances, GD&amp;T symbols, and title block metadata — integrated via API with digital workflows.</p>
+        </div>
+        <a href="#" class="work-card-btn">View Details <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 3l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+
+      <!-- 2. AI Sales & Voice Tools -->
+      <div class="work-card">
+        <div style="background:linear-gradient(135deg,#eef8d0,#dff0b0); height:200px; display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+          <svg viewBox="0 0 200 130" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:90%;max-width:200px;">
+            <!-- Sales card -->
+            <rect x="8" y="10" width="84" height="110" rx="7" fill="#fff" stroke="#ddd8cc" stroke-width="1.2"/>
+            <rect x="8" y="10" width="84" height="20" rx="7" fill="#c8f060"/>
+            <rect x="8" y="23" width="84" height="7" rx="0" fill="#c8f060"/>
+            <text x="50" y="23.5" font-size="6.5" fill="#3d5200" font-family="monospace" font-weight="700" text-anchor="middle">SALES AI</text>
+            <!-- Pipeline bars -->
+            <rect x="14" y="38" width="70" height="6" rx="3" fill="#e8f5c0"/>
+            <rect x="14" y="38" width="54" height="6" rx="3" fill="#b8e040"/>
+            <rect x="14" y="48" width="70" height="6" rx="3" fill="#e8f5c0"/>
+            <rect x="14" y="48" width="40" height="6" rx="3" fill="#c8f060"/>
+            <rect x="14" y="58" width="70" height="6" rx="3" fill="#e8f5c0"/>
+            <rect x="14" y="58" width="62" height="6" rx="3" fill="#b8e040"/>
+            <rect x="14" y="68" width="70" height="6" rx="3" fill="#e8f5c0"/>
+            <rect x="14" y="68" width="28" height="6" rx="3" fill="#c8f060"/>
+            <!-- PO chip -->
+            <rect x="14" y="80" width="34" height="12" rx="4" fill="#1c1a17"/>
+            <text x="31" y="88.5" font-size="5.5" fill="#c8f060" font-family="monospace" font-weight="700" text-anchor="middle">PO AUTO</text>
+            <!-- Integrations -->
+            <rect x="14" y="97" width="16" height="12" rx="3" fill="#f0f0f8" stroke="#ddd8cc" stroke-width=".8"/>
+            <text x="22" y="105.5" font-size="5" fill="#1b5f9c" font-family="monospace" font-weight="700" text-anchor="middle">SF</text>
+            <rect x="33" y="97" width="16" height="12" rx="3" fill="#f0f4ff" stroke="#ddd8cc" stroke-width=".8"/>
+            <text x="41" y="105.5" font-size="5" fill="#0072c6" font-family="monospace" font-weight="700" text-anchor="middle">MS</text>
+            <rect x="52" y="97" width="16" height="12" rx="3" fill="#fff5f0" stroke="#ddd8cc" stroke-width=".8"/>
+            <text x="60" y="105.5" font-size="5" fill="#c74634" font-family="monospace" font-weight="700" text-anchor="middle">ORC</text>
+            <!-- Voice panel -->
+            <rect x="102" y="10" width="90" height="110" rx="7" fill="#fff" stroke="#ddd8cc" stroke-width="1.2"/>
+            <rect x="102" y="10" width="90" height="20" rx="7" fill="#1c1a17"/>
+            <rect x="102" y="23" width="90" height="7" rx="0" fill="#1c1a17"/>
+            <text x="147" y="23.5" font-size="6.5" fill="#c8f060" font-family="monospace" font-weight="700" text-anchor="middle">VOICE AI</text>
+            <!-- Mic -->
+            <rect x="137" y="35" width="20" height="25" rx="10" fill="none" stroke="#c8f060" stroke-width="1.4"/>
+            <line x1="147" y1="60" x2="147" y2="67" stroke="#c8f060" stroke-width="1.4"/>
+            <path d="M141 64 Q147 69 153 64" fill="none" stroke="#c8f060" stroke-width="1.4" stroke-linecap="round"/>
+            <!-- Waveform -->
+            <rect x="108" y="80" width="4" height="6" rx="2" fill="#e8f5c0"/>
+            <rect x="114" y="76" width="4" height="14" rx="2" fill="#c8f060"/>
+            <rect x="120" y="72" width="4" height="22" rx="2" fill="#b8e040"/>
+            <rect x="126" y="78" width="4" height="10" rx="2" fill="#c8f060"/>
+            <rect x="132" y="74" width="4" height="18" rx="2" fill="#e8f5c0"/>
+            <rect x="138" y="70" width="4" height="26" rx="2" fill="#c8f060"/>
+            <rect x="144" y="75" width="4" height="16" rx="2" fill="#b8e040"/>
+            <rect x="150" y="79" width="4" height="8" rx="2" fill="#c8f060"/>
+            <rect x="156" y="76" width="4" height="14" rx="2" fill="#e8f5c0"/>
+            <rect x="162" y="80" width="4" height="6" rx="2" fill="#c8f060"/>
+            <rect x="168" y="77" width="4" height="12" rx="2" fill="#b8e040"/>
+            <rect x="174" y="81" width="4" height="5" rx="2" fill="#e8f5c0"/>
+            <!-- Live label -->
+            <circle cx="110" cy="108" r="3.5" fill="#c8f060"/>
+            <text x="117" y="111" font-size="6.5" fill="#5a7a00" font-family="monospace" font-weight="700">LIVE</text>
+          </svg>
+        </div>
+        <div class="work-card-body">
+          <div class="work-tag">AI / Sales Automation</div>
+          <h3>AI Sales &amp; Voice Tools</h3>
+          <p>AI-powered tools for sales automation and purchase order processing. Voice creation module compatible with Salesforce, Microsoft Dynamics, and Oracle.</p>
+        </div>
+        <a href="#" class="work-card-btn">View Details <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 3l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+
+      <!-- 3. Find Lawyers -->
+      <div class="work-card">
+        <div style="background:linear-gradient(135deg,#edf7d5,#dff0b4); height:200px; display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+          <svg viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:86%;max-width:200px;">
+            <!-- Phone shell -->
+            <rect x="62" y="4" width="76" height="132" rx="14" fill="#1c1a17" stroke="#3a3830" stroke-width="1.2"/>
+            <rect x="66" y="10" width="68" height="120" rx="10" fill="#f5f2eb"/>
+            <!-- Status bar -->
+            <rect x="66" y="10" width="68" height="10" rx="10" fill="#fff"/>
+            <rect x="66" y="16" width="68" height="4" rx="0" fill="#fff"/>
+            <!-- App bar -->
+            <rect x="66" y="20" width="68" height="18" rx="0" fill="#c8f060"/>
+            <text x="100" y="32" font-size="7.5" fill="#3d5200" font-family="monospace" font-weight="700" text-anchor="middle">Find Lawyers</text>
+            <!-- Search bar -->
+            <rect x="70" y="42" width="60" height="10" rx="5" fill="#fff" stroke="#ddd8cc" stroke-width="1"/>
+            <circle cx="77" cy="47" r="3" fill="none" stroke="#b8e040" stroke-width="1.2"/>
+            <line x1="79.5" y1="49.5" x2="81.5" y2="51.5" stroke="#b8e040" stroke-width="1.2" stroke-linecap="round"/>
+            <rect x="83" y="45" width="38" height="4" rx="2" fill="#e8f5c0"/>
+            <!-- Filter chips -->
+            <rect x="70" y="56" width="24" height="8" rx="4" fill="#c8f060"/>
+            <text x="82" y="62" font-size="5.5" fill="#3d5200" font-family="monospace" font-weight="700" text-anchor="middle">Tax Law</text>
+            <rect x="97" y="56" width="18" height="8" rx="4" fill="#e8f5c0" stroke="#c8f060" stroke-width=".8"/>
+            <text x="106" y="62" font-size="5.5" fill="#5a7a00" font-family="monospace" text-anchor="middle">Civil</text>
+            <rect x="118" y="56" width="10" height="8" rx="4" fill="#e8f5c0" stroke="#ddd8cc" stroke-width=".8"/>
+            <text x="123" y="62" font-size="5.5" fill="#7a7265" font-family="monospace" text-anchor="middle">IP</text>
+            <!-- Lawyer card 1 (featured) -->
+            <rect x="70" y="68" width="60" height="24" rx="5" fill="#fff" stroke="#c8f060" stroke-width="1.2"/>
+            <circle cx="82" cy="80" r="7" fill="#e8f5c0"/>
+            <circle cx="82" cy="78" r="3" fill="#c8f060"/>
+            <path d="M76 86 Q82 83 88 86" fill="#c8f060" opacity=".6"/>
+            <rect x="92" y="70" width="30" height="4" rx="2" fill="#1c1a17"/>
+            <rect x="92" y="77" width="22" height="3" rx="1.5" fill="#aaa499"/>
+            <text x="92" y="89" font-size="6" fill="#b8e040" font-family="monospace" font-weight="700">★★★★★</text>
+            <!-- Lawyer card 2 -->
+            <rect x="70" y="96" width="60" height="22" rx="5" fill="#fff" stroke="#ddd8cc" stroke-width="1"/>
+            <circle cx="82" cy="107" r="7" fill="#f0f0ec"/>
+            <circle cx="82" cy="105" r="3" fill="#e0dbd0"/>
+            <rect x="92" y="98" width="24" height="4" rx="2" fill="#1c1a17"/>
+            <rect x="92" y="105" width="18" height="3" rx="1.5" fill="#aaa499"/>
+            <text x="92" y="115" font-size="6" fill="#c8f060" font-family="monospace">★★★★☆</text>
+            <!-- Store badges -->
+            <rect x="74" y="122" width="22" height="6" rx="3" fill="#1c1a17"/>
+            <text x="85" y="127" font-size="4.5" fill="#f5f2eb" font-family="monospace" font-weight="700" text-anchor="middle">iOS</text>
+            <rect x="100" y="122" width="26" height="6" rx="3" fill="#1c1a17"/>
+            <text x="113" y="127" font-size="4.5" fill="#c8f060" font-family="monospace" font-weight="700" text-anchor="middle">Android</text>
+          </svg>
+        </div>
+        <div class="work-card-body">
+          <div class="work-tag">Mobile / Legal</div>
+          <h3>Find Lawyers</h3>
+          <p>Mobile app connecting users to verified lawyers with smart filters by specialisation, location, and star rating. Available on iOS and Android.</p>
+        </div>
+        <a href="#" class="work-card-btn">View Details <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 3l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+
+      <!-- 4. 3D Mapping -->
+      <div class="work-card">
+        <div style="background:linear-gradient(135deg,#e8f5c0,#d4eea0); height:200px; display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+          <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(90,122,0,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(90,122,0,.05) 1px,transparent 1px);background-size:20px 20px;"></div>
+          <svg viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:relative;z-index:1;width:88%;max-width:200px;">
+            <!-- 3D isometric grid base -->
+            <!-- Horizontal grid lines (isometric) -->
+            <line x1="30" y1="100" x2="100" y2="60" stroke="#b8d840" stroke-width=".8" opacity=".6"/>
+            <line x1="30" y1="88" x2="100" y2="48" stroke="#b8d840" stroke-width=".8" opacity=".5"/>
+            <line x1="30" y1="76" x2="100" y2="36" stroke="#b8d840" stroke-width=".8" opacity=".4"/>
+            <line x1="100" y1="100" x2="170" y2="60" stroke="#b8d840" stroke-width=".8" opacity=".6"/>
+            <line x1="100" y1="88" x2="170" y2="48" stroke="#b8d840" stroke-width=".8" opacity=".5"/>
+            <line x1="100" y1="76" x2="170" y2="36" stroke="#b8d840" stroke-width=".8" opacity=".4"/>
+            <!-- Vertical iso lines -->
+            <line x1="30" y1="76" x2="30" y2="100" stroke="#b8d840" stroke-width=".8" opacity=".5"/>
+            <line x1="54" y1="64" x2="54" y2="88" stroke="#b8d840" stroke-width=".8" opacity=".5"/>
+            <line x1="78" y1="52" x2="78" y2="76" stroke="#b8d840" stroke-width=".8" opacity=".5"/>
+            <line x1="100" y1="60" x2="100" y2="100" stroke="#b8d840" stroke-width=".8" opacity=".5"/>
+            <line x1="124" y1="48" x2="124" y2="88" stroke="#b8d840" stroke-width=".8" opacity=".5"/>
+            <line x1="148" y1="36" x2="148" y2="76" stroke="#b8d840" stroke-width=".8" opacity=".5"/>
+            <line x1="170" y1="60" x2="170" y2="100" stroke="#b8d840" stroke-width=".8" opacity=".5"/>
+            <!-- Building 1 (tall, left) -->
+            <polygon points="54,64 78,52 78,28 54,40" fill="#c8f060" opacity=".85"/>
+            <polygon points="54,40 78,28 78,4 54,16" fill="#b8e040" opacity=".7"/>
+            <polygon points="54,16 78,4 78,28 54,40" fill="#d4f070" opacity=".4"/>
+            <!-- Building top face -->
+            <polygon points="54,16 78,4 100,16 76,28" fill="#e8f5c0"/>
+            <!-- Building 2 (medium, center) -->
+            <polygon points="100,76 124,64 124,44 100,56" fill="#c8f060" opacity=".9"/>
+            <polygon points="100,56 124,44 124,24 100,36" fill="#b8e040" opacity=".75"/>
+            <polygon points="100,36 124,24 146,36 122,48" fill="#e8f5c0"/>
+            <!-- Building 3 (small, right) -->
+            <polygon points="130,80 154,68 154,54 130,66" fill="#c8f060" opacity=".8"/>
+            <polygon points="130,66 154,54 154,42 130,54" fill="#b8e040" opacity=".65"/>
+            <polygon points="130,54 154,42 172,52 148,64" fill="#e8f5c0"/>
+            <!-- Scan point cloud dots -->
+            <circle cx="44" cy="96" r="2" fill="#5a7a00" opacity=".5"/>
+            <circle cx="60" cy="92" r="1.5" fill="#5a7a00" opacity=".4"/>
+            <circle cx="80" cy="96" r="2" fill="#5a7a00" opacity=".5"/>
+            <circle cx="110" cy="96" r="1.5" fill="#5a7a00" opacity=".4"/>
+            <circle cx="140" cy="90" r="2" fill="#5a7a00" opacity=".5"/>
+            <circle cx="160" cy="94" r="1.5" fill="#5a7a00" opacity=".4"/>
+            <!-- Data overlay badge -->
+            <rect x="8" y="108" width="80" height="24" rx="5" fill="#1c1a17" opacity=".92"/>
+            <text x="48" y="117" font-size="5.5" fill="#c8f060" font-family="monospace" font-weight="700" text-anchor="middle">3D SPATIAL MAP</text>
+            <text x="48" y="126" font-size="5" fill="rgba(200,240,96,.6)" font-family="monospace" text-anchor="middle">scanning 12,400 pts/s</text>
+            <!-- Coordinate marker -->
+            <circle cx="100" cy="60" r="4" fill="none" stroke="#c8f060" stroke-width="1.4"/>
+            <line x1="100" y1="56" x2="100" y2="50" stroke="#c8f060" stroke-width="1.2"/>
+            <circle cx="100" cy="60" r="1.5" fill="#c8f060"/>
+          </svg>
+        </div>
+        <div class="work-card-body">
+          <div class="work-tag">GIS / Smart City</div>
+          <h3>3D Mapping</h3>
+          <p>Advanced 3D spatial mapping solution for urban planning, infrastructure surveys, and geospatial data visualisation — scanning thousands of points per second.</p>
+        </div>
+        <a href="#" class="work-card-btn">View Details <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 3l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+
+      <!-- 5. My Eventus -->
+      <div class="work-card">
+        <div style="background:linear-gradient(135deg,#eef8d0,#dff0b0); height:200px; display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+          <svg viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:90%;max-width:200px;">
+            <!-- Event calendar card -->
+            <rect x="14" y="10" width="172" height="120" rx="10" fill="#fff" stroke="#ddd8cc" stroke-width="1.2"/>
+            <!-- Calendar header -->
+            <rect x="14" y="10" width="172" height="28" rx="10" fill="#1c1a17"/>
+            <rect x="14" y="28" width="172" height="10" rx="0" fill="#1c1a17"/>
+            <text x="100" y="27" font-size="8" fill="#c8f060" font-family="monospace" font-weight="700" text-anchor="middle">MY EVENTUS</text>
+            <!-- Calendar grid headers -->
+            <text x="30" y="48" font-size="6" fill="#aaa499" font-family="monospace" text-anchor="middle">MON</text>
+            <text x="55" y="48" font-size="6" fill="#aaa499" font-family="monospace" text-anchor="middle">TUE</text>
+            <text x="80" y="48" font-size="6" fill="#aaa499" font-family="monospace" text-anchor="middle">WED</text>
+            <text x="105" y="48" font-size="6" fill="#aaa499" font-family="monospace" text-anchor="middle">THU</text>
+            <text x="130" y="48" font-size="6" fill="#aaa499" font-family="monospace" text-anchor="middle">FRI</text>
+            <text x="155" y="48" font-size="6" fill="#aaa499" font-family="monospace" text-anchor="middle">SAT</text>
+            <!-- Day cells row 1 -->
+            <rect x="18" y="52" width="24" height="18" rx="3" fill="#f5f2eb"/>
+            <text x="30" y="64" font-size="8" fill="#7a7265" font-family="monospace" text-anchor="middle">5</text>
+            <rect x="43" y="52" width="24" height="18" rx="3" fill="#f5f2eb"/>
+            <text x="55" y="64" font-size="8" fill="#7a7265" font-family="monospace" text-anchor="middle">6</text>
+            <!-- Highlighted event day -->
+            <rect x="68" y="52" width="24" height="18" rx="3" fill="#c8f060"/>
+            <text x="80" y="64" font-size="8" fill="#3d5200" font-family="monospace" font-weight="700" text-anchor="middle">7</text>
+            <rect x="93" y="52" width="24" height="18" rx="3" fill="#f5f2eb"/>
+            <text x="105" y="64" font-size="8" fill="#7a7265" font-family="monospace" text-anchor="middle">8</text>
+            <rect x="118" y="52" width="24" height="18" rx="3" fill="#e8f5c0"/>
+            <text x="130" y="64" font-size="8" fill="#5a7a00" font-family="monospace" text-anchor="middle">9</text>
+            <rect x="143" y="52" width="24" height="18" rx="3" fill="#f5f2eb"/>
+            <text x="155" y="64" font-size="8" fill="#7a7265" font-family="monospace" text-anchor="middle">10</text>
+            <!-- Event blocks -->
+            <rect x="68" y="74" width="49" height="10" rx="3" fill="#c8f060"/>
+            <text x="93" y="81.5" font-size="5.5" fill="#3d5200" font-family="monospace" font-weight="700" text-anchor="middle">Tech Summit 2025</text>
+            <rect x="93" y="74" width="74" height="10" rx="3" fill="#e8f5c0" stroke="#c8f060" stroke-width=".8"/>
+            <text x="130" y="81.5" font-size="5.5" fill="#5a7a00" font-family="monospace" text-anchor="middle">Product Launch</text>
+            <!-- Attendee bubbles + ticket chip -->
+            <circle cx="22" cy="105" r="8" fill="#e8f5c0"/>
+            <circle cx="22" cy="103" r="3.5" fill="#c8f060"/>
+            <path d="M15 111 Q22 108 29 111" fill="#c8f060" opacity=".5"/>
+            <circle cx="38" cy="105" r="8" fill="#f0f0ec"/>
+            <circle cx="38" cy="103" r="3.5" fill="#e0dbd0"/>
+            <path d="M31 111 Q38 108 45 111" fill="#e0dbd0" opacity=".5"/>
+            <circle cx="54" cy="105" r="8" fill="#e8f5c0"/>
+            <circle cx="54" cy="103" r="3.5" fill="#c8f060"/>
+            <path d="M47 111 Q54 108 61 111" fill="#c8f060" opacity=".5"/>
+            <text x="70" y="109" font-size="6.5" fill="#5a7a00" font-family="monospace">+248 attending</text>
+            <!-- Ticket chip -->
+            <rect x="118" y="97" width="58" height="18" rx="5" fill="#1c1a17"/>
+            <text x="147" y="104.5" font-size="5.5" fill="#c8f060" font-family="monospace" font-weight="700" text-anchor="middle">TICKETING</text>
+            <text x="147" y="111.5" font-size="5" fill="rgba(200,240,96,.6)" font-family="monospace" text-anchor="middle">340 / 500 sold</text>
+          </svg>
+        </div>
+        <div class="work-card-body">
+          <div class="work-tag">SaaS / Events</div>
+          <h3>My Eventus</h3>
+          <p>Event management platform for planning, ticketing, and attendee engagement. Supports multi-track scheduling, digital tickets, and real-time capacity tracking.</p>
+        </div>
+        <a href="#" class="work-card-btn">View Details <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 3l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+
+      <!-- 6. Parking Ticket Management -->
+      <div class="work-card">
+        <div style="background:linear-gradient(135deg,#edf7d5,#dff0b4); height:200px; display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+          <svg viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:90%;max-width:200px;">
+            <!-- City road grid -->
+            <rect x="0" y="60" width="200" height="20" fill="#e0dbd0" opacity=".5"/>
+            <rect x="80" y="0" width="20" height="140" fill="#e0dbd0" opacity=".5"/>
+            <!-- Road markings -->
+            <line x1="0" y1="70" x2="78" y2="70" stroke="#fff" stroke-width="1.5" stroke-dasharray="8 6" opacity=".7"/>
+            <line x1="102" y1="70" x2="200" y2="70" stroke="#fff" stroke-width="1.5" stroke-dasharray="8 6" opacity=".7"/>
+            <line x1="90" y1="0" x2="90" y2="58" stroke="#fff" stroke-width="1.5" stroke-dasharray="8 6" opacity=".7"/>
+            <line x1="90" y1="82" x2="90" y2="140" stroke="#fff" stroke-width="1.5" stroke-dasharray="8 6" opacity=".7"/>
+            <!-- Parked car icon -->
+            <rect x="18" y="32" width="54" height="24" rx="6" fill="#fff" stroke="#ddd8cc" stroke-width="1.2"/>
+            <rect x="24" y="36" width="42" height="14" rx="4" fill="#e8f5c0"/>
+            <circle cx="27" cy="56" r="4" fill="#5a7a00" opacity=".7"/>
+            <circle cx="63" cy="56" r="4" fill="#5a7a00" opacity=".7"/>
+            <text x="45" y="45.5" font-size="6" fill="#3d5200" font-family="monospace" font-weight="700" text-anchor="middle">TN 09 AB 1234</text>
+            <!-- Parking meter -->
+            <rect x="54" y="14" width="8" height="18" rx="2" fill="#1c1a17"/>
+            <rect x="52" y="10" width="12" height="10" rx="3" fill="#1c1a17"/>
+            <rect x="53" y="11" width="10" height="7" rx="2" fill="#c8f060" opacity=".9"/>
+            <text x="58" y="16.5" font-size="4.5" fill="#3d5200" font-family="monospace" font-weight="700" text-anchor="middle">2h</text>
+            <!-- Ticket device (officer's phone) -->
+            <rect x="110" y="18" width="70" height="100" rx="8" fill="#fff" stroke="#ddd8cc" stroke-width="1.2"/>
+            <rect x="110" y="18" width="70" height="20" rx="8" fill="#1c1a17"/>
+            <rect x="110" y="30" width="70" height="8" rx="0" fill="#1c1a17"/>
+            <text x="145" y="31.5" font-size="6.5" fill="#c8f060" font-family="monospace" font-weight="700" text-anchor="middle">ENFORCE</text>
+            <!-- Ticket form -->
+            <rect x="116" y="44" width="58" height="44" rx="5" fill="#f5f2eb" stroke="#e8f5c0" stroke-width="1"/>
+            <rect x="120" y="48" width="40" height="4" rx="2" fill="#1c1a17"/>
+            <rect x="120" y="56" width="34" height="3" rx="1.5" fill="#ddd8cc"/>
+            <rect x="120" y="62" width="30" height="3" rx="1.5" fill="#ddd8cc"/>
+            <rect x="120" y="68" width="36" height="3" rx="1.5" fill="#ddd8cc"/>
+            <rect x="120" y="74" width="28" height="3" rx="1.5" fill="#ddd8cc"/>
+            <!-- Issue button -->
+            <rect x="116" y="94" width="58" height="16" rx="5" fill="#c8f060"/>
+            <text x="145" y="104" font-size="7" fill="#3d5200" font-family="monospace" font-weight="700" text-anchor="middle">ISSUE TICKET</text>
+            <!-- Payment status -->
+            <rect x="116" y="114" width="26" height="10" rx="3" fill="#e8f5c0" stroke="#c8f060" stroke-width=".8"/>
+            <text x="129" y="121" font-size="5" fill="#5a7a00" font-family="monospace" font-weight="700" text-anchor="middle">PAID</text>
+            <rect x="146" y="114" width="22" height="10" rx="3" fill="#fff0e0" stroke="#f0a050" stroke-width=".8"/>
+            <text x="157" y="121" font-size="5" fill="#c07000" font-family="monospace" font-weight="700" text-anchor="middle">DUE</text>
+            <!-- GPS ping on car -->
+            <circle cx="45" cy="40" r="12" fill="none" stroke="#c8f060" stroke-width="1" opacity=".4"/>
+            <circle cx="45" cy="40" r="7" fill="none" stroke="#c8f060" stroke-width="1" opacity=".6"/>
+            <circle cx="45" cy="40" r="2.5" fill="#c8f060"/>
+          </svg>
+        </div>
+        <div class="work-card-body">
+          <div class="work-tag">GovTech / Smart City</div>
+          <h3>Parking Ticket Management</h3>
+          <p>Smart city solution for municipal parking enforcement: digital ticket issuance, payment processing, dispute management, and real-time enforcement dashboards.</p>
+        </div>
+        <a href="#" class="work-card-btn">View Details <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 3l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+
+    </div><!-- /projects-grid -->
+
+    <!-- Back to homepage CTA -->
+    <div style="margin-top:4rem; text-align:center;">
+      <a href="index.html#contact" class="btn-primary" style="font-size:.9375rem; padding:.9rem 2rem;">
+        Start a Project
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 3l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" style="display:flex; align-items:center; text-decoration:none; margin-bottom:1rem;">
+          <img src="assets/logos/text-and-logo.svg" alt="CodeWeavers" style="height:7rem; width:auto;" />
+        </a>
+        <p style="color:var(--text-muted); font-size:.875rem; line-height:1.7; max-width:240px;">Custom software solutions for ambitious businesses.</p>
+        <div style="display:flex; gap:.5rem; margin-top:1.25rem;">
+          <a href="https://www.linkedin.com/company/the-code-weavers" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn">
+            <iconify-icon icon="mdi:linkedin" width="16" height="16"></iconify-icon>
+          </a>
+          <a href="https://twitter.com/thecodeweavers" target="_blank" rel="noopener" class="social-btn" aria-label="Twitter / X">
+            <iconify-icon icon="mdi:twitter" width="16" height="16"></iconify-icon>
+          </a>
+          <a href="https://github.com/thecodeweavers" target="_blank" rel="noopener" class="social-btn" aria-label="GitHub">
+            <iconify-icon icon="mdi:github" width="16" height="16"></iconify-icon>
+          </a>
+          <a href="https://www.instagram.com/thecodeweavers" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
+            <iconify-icon icon="mdi:instagram" width="16" height="16"></iconify-icon>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h5 style="font-family:'Instrument Sans',sans-serif; font-weight:700; font-size:.8125rem; margin-bottom:1rem; text-transform:uppercase; letter-spacing:.06em; color:var(--text);">Services</h5>
+        <a href="index.html#services" class="footer-link">Microsoft Dynamics 365</a>
+        <a href="index.html#services" class="footer-link">Azure Development</a>
+        <a href="index.html#services" class="footer-link">Power BI</a>
+        <a href="index.html#services" class="footer-link">Mobile &amp; ERP</a>
+        <a href="index.html#services" class="footer-link">AI Solutions</a>
+      </div>
+      <div>
+        <h5 style="font-family:'Instrument Sans',sans-serif; font-weight:700; font-size:.8125rem; margin-bottom:1rem; text-transform:uppercase; letter-spacing:.06em; color:var(--text);">Company</h5>
+        <a href="index.html#about" class="footer-link">About</a>
+        <a href="projects.html" class="footer-link">All Projects</a>
+        <a href="index.html#process" class="footer-link">Process</a>
+        <a href="index.html#testimonials" class="footer-link">Clients</a>
+      </div>
+      <div>
+        <h5 style="font-family:'Instrument Sans',sans-serif; font-weight:700; font-size:.8125rem; margin-bottom:1rem; text-transform:uppercase; letter-spacing:.06em; color:var(--text);">Contact</h5>
+        <a href="mailto:vrk@thecodeweavers.com" class="footer-link">vrk@thecodeweavers.com</a>
+        <span class="footer-link" style="cursor:default;">+91 99620 97988</span>
+        <span class="footer-link" style="cursor:default;">Chennai, India</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 The Code Weavers. All rights reserved.</p>
+      <div style="display:flex;gap:1.5rem;">
+        <a href="#" class="footer-bottom-link">Privacy</a>
+        <a href="#" class="footer-bottom-link">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Navbar scroll behaviour (mirrors main.js)
+  var navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 30) { navbar.classList.add('scrolled'); }
+    else { navbar.classList.remove('scrolled'); }
+  });
+
+  function openMobileNav() {
+    document.getElementById('mobile-nav').classList.add('open');
+  }
+  function closeMobileNav() {
+    document.getElementById('mobile-nav').classList.remove('open');
+  }
+</script>
+</body>
+</html>
