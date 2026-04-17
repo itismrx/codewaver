@@ -176,3 +176,52 @@ if (statsSection) statsObs.observe(statsSection);
 
   draw();
 })();
+
+/* ── ABOUT COLLAGE SCROLL ANIMATION ── */
+window.addEventListener('load', function () {
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+  gsap.registerPlugin(ScrollTrigger);
+
+  const scene = document.querySelector('.team-collage-scene');
+  if (!scene) return;
+
+  const mainPhoto     = scene.querySelector('.team-main-photo');
+  const collageTop    = scene.querySelector('.collage-card');
+  const portraits     = scene.querySelectorAll('.collage-card-portrait');
+
+  // Capture each element's final inline transform so we restore it after animation
+  const topRot    = '-8deg';
+  const p0Rot     = '-5deg';
+  const p1Rot     = '5deg';
+
+  // Set initial hidden states (exaggerated positions matching delosmedia style)
+  gsap.set(mainPhoto, { opacity: 0, y: 48, scale: 0.90, transformOrigin: 'center bottom' });
+  gsap.set(collageTop, { opacity: 0, y: 36, scale: 0.88, rotate: -14, transformOrigin: 'center center' });
+  gsap.set(portraits[0], { opacity: 0, y: 44, scale: 0.88, rotate: -10, transformOrigin: 'center bottom' });
+  gsap.set(portraits[1], { opacity: 0, y: 44, scale: 0.88, rotate: 10,  transformOrigin: 'center bottom' });
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: scene,
+      start: 'top 78%',
+      once: true,
+    }
+  });
+
+  tl.to(mainPhoto, {
+    opacity: 1, y: 0, scale: 1,
+    duration: 0.85, ease: 'power3.out'
+  })
+  .to(collageTop, {
+    opacity: 1, y: 0, scale: 1, rotate: -8,
+    duration: 0.72, ease: 'power3.out'
+  }, '-=0.55')
+  .to(portraits[0], {
+    opacity: 0.78, y: 0, scale: 1, rotate: -5,
+    duration: 0.72, ease: 'power3.out'
+  }, '-=0.50')
+  .to(portraits[1], {
+    opacity: 0.78, y: 0, scale: 1, rotate: 5,
+    duration: 0.72, ease: 'power3.out'
+  }, '-=0.60');
+});
