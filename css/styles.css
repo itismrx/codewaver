@@ -382,7 +382,7 @@ body {
 
 /* ── ABOUT ── */
 #about { background: var(--surface); border-top: 1px solid var(--border); }
-.about-simon { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+.about-simon { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
 
 .team-photos-row { display: flex; margin-bottom: 2.25rem; }
 .team-photo {
@@ -404,17 +404,17 @@ body {
 .ab-icon svg { width: 10px; height: 10px; }
 
 .about-simon-right {
-  position: relative; min-height: 640px;
+  position: relative;
   display: flex; align-items: center; justify-content: center;
 }
 .team-collage-scene {
   position: relative; width: 100%; max-width: 460px;
-  height: 540px; margin: 0 auto;
+  height: 580px; margin: 0 auto;
   background: transparent; border-radius: 0; overflow: visible;
 }
 .team-main-photo {
   position: absolute; left: 50%; top: 50%;
-  transform: translate(-50%, -44%);
+  transform: translate(-50%, -50%);
   width: 72%; aspect-ratio: 3 / 4;
   border-radius: 1.25rem; overflow: hidden;
   box-shadow: 0 20px 60px rgba(0,0,0,.22); z-index: 2;
