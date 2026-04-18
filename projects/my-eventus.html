@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Eventus — The Code Weavers</title>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <style>
+    .detail-hero { padding: 9rem 0 5rem; }
+    .breadcrumb { display:flex; align-items:center; gap:.5rem; font-size:.8125rem; color:var(--text-muted); margin-bottom:2rem; }
+    .breadcrumb a { color:var(--text-muted); text-decoration:none; transition:color .2s; }
+    .breadcrumb a:hover { color:var(--text); }
+    .breadcrumb .sep { opacity:.4; }
+    .stat-chip { background:var(--surface-2); border:1px solid var(--border); border-radius:6.25rem; padding:.375rem 1rem; font-size:.8rem; font-weight:600; color:var(--text); white-space:nowrap; }
+    .visual-panel { background:#1c1a17; border-radius:1.5rem; margin:0 2rem; min-height:400px; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+    .feature-card { background:var(--surface); border:1px solid var(--border); border-radius:1rem; padding:1.5rem; }
+    .feature-card h4 { font-size:.9375rem; font-weight:700; margin-bottom:.5rem; }
+    .feature-card p { font-size:.875rem; color:var(--text-muted); line-height:1.6; }
+    .step-num { width:2.5rem; height:2.5rem; border-radius:50%; background:#1c1a17; color:#c8f060; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:.9rem; flex-shrink:0; }
+    .step-connector { flex:1; height:1px; background:var(--border); }
+    .tech-pill { background:var(--surface-2); border:1px solid var(--border); border-radius:6.25rem; padding:.375rem 1rem; font-size:.8rem; font-weight:600; }
+    .cta-band { background:#1c1a17; border-radius:1.5rem; padding:4rem; text-align:center; }
+    .highlight-dot { width:6px; height:6px; border-radius:50%; background:#a9eb17; flex-shrink:0; margin-top:.4rem; }
+    @media (max-width:768px) { .visual-panel { margin:0 1rem; } .cta-band { padding:2.5rem 1.5rem; } }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="../index.html" style="display:flex; align-items:center; text-decoration:none;">
+        <img src="../assets/logos/text-and-logo - horizontal.svg" alt="CodeWeavers" style="height:2.375rem; width:auto;" />
+      </a>
+      <div class="nav-links" style="display:flex; align-items:center; gap:2rem;">
+        <a href="../index.html#services" class="nav-link">Services</a>
+        <a href="../index.html#work" class="nav-link">Work</a>
+        <a href="../index.html#process" class="nav-link">Process</a>
+        <a href="../index.html#about" class="nav-link">About</a>
+      </div>
+      <div style="display:flex; align-items:center; gap:.875rem;">
+        <div class="nav-divider nav-cta"></div>
+        <a href="../index.html#contact" class="nav-btn-delos nav-cta">Start a Project</a>
+        <button id="burger" class="nav-burger" onclick="openMobileNav()">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 5h16M3 11h16M3 17h16" stroke="var(--text)" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div id="mobile-nav">
+  <button class="mobile-nav-close" onclick="closeMobileNav()">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="var(--text)" stroke-width="2" stroke-linecap="round"/></svg>
+  </button>
+  <a href="../index.html#services">Services</a>
+  <a href="../index.html#work">Work</a>
+  <a href="../index.html#process">Process</a>
+  <a href="../index.html#about">About</a>
+  <a href="../index.html#contact" class="btn-primary">Start a Project</a>
+</div>
+
+<!-- 1. HERO BAND -->
+<section class="detail-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span class="sep">›</span>
+      <a href="../projects.html">All Projects</a>
+      <span class="sep">›</span>
+      <span style="color:var(--text); font-weight:600;">My Eventus</span>
+    </nav>
+    <span class="section-tag">SaaS / Events</span>
+    <h1 class="section-heading" style="margin-top:.75rem; max-width:680px;">My Eventus</h1>
+    <p style="color:var(--text-muted); font-size:1.0625rem; line-height:1.75; max-width:600px; margin-top:1.25rem;">Plan, sell, and manage events — from registration to real-time check-in.</p>
+    <div style="display:flex; flex-wrap:wrap; gap:.75rem; margin-top:2rem;">
+      <span class="stat-chip">Multi-track scheduling</span>
+      <span class="stat-chip">Digital ticketing</span>
+      <span class="stat-chip">Live capacity tracking</span>
+    </div>
+  </div>
+</section>
+
+<!-- 2. VISUAL PANEL -->
+<div class="visual-panel">
+  <svg viewBox="0 0 900 420" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; max-width:900px; padding:2rem;">
+    <defs>
+      <pattern id="grid5" width="40" height="40" patternUnits="userSpaceOnUse">
+        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(169,235,23,.05)" stroke-width="1"/>
+      </pattern>
+    </defs>
+    <rect width="900" height="420" fill="url(#grid5)"/>
+
+    <!-- Dashboard frame -->
+    <rect x="30" y="30" width="540" height="360" rx="14" fill="#242220" stroke="#a9eb17" stroke-width="1.5"/>
+    <!-- Dashboard header -->
+    <rect x="30" y="30" width="540" height="50" rx="14" fill="#1c1a17"/>
+    <rect x="30" y="68" width="540" height="12" rx="0" fill="#1c1a17"/>
+    <text x="300" y="63" font-size="14" fill="#a9eb17" font-family="monospace" font-weight="800" text-anchor="middle">MY EVENTUS — DASHBOARD</text>
+
+    <!-- Calendar grid -->
+    <!-- Headers -->
+    <text x="80" y="106" font-size="9" fill="#a9eb17" font-family="monospace" opacity=".5" text-anchor="middle">MON</text>
+    <text x="160" y="106" font-size="9" fill="#a9eb17" font-family="monospace" opacity=".5" text-anchor="middle">TUE</text>
+    <text x="240" y="106" font-size="9" fill="#a9eb17" font-family="monospace" opacity=".5" text-anchor="middle">WED</text>
+    <text x="320" y="106" font-size="9" fill="#a9eb17" font-family="monospace" opacity=".5" text-anchor="middle">THU</text>
+    <text x="400" y="106" font-size="9" fill="#a9eb17" font-family="monospace" opacity=".5" text-anchor="middle">FRI</text>
+    <text x="480" y="106" font-size="9" fill="#a9eb17" font-family="monospace" opacity=".5" text-anchor="middle">SAT</text>
+
+    <!-- Day cells row 1 -->
+    <rect x="48" y="112" width="64" height="40" rx="6" fill="#2a2825"/>
+    <text x="80" y="137" font-size="14" fill="#7a7265" font-family="monospace" text-anchor="middle">5</text>
+    <rect x="128" y="112" width="64" height="40" rx="6" fill="#2a2825"/>
+    <text x="160" y="137" font-size="14" fill="#7a7265" font-family="monospace" text-anchor="middle">6</text>
+    <rect x="208" y="112" width="64" height="40" rx="6" fill="#a9eb17"/>
+    <text x="240" y="137" font-size="14" fill="#1c1a17" font-family="monospace" font-weight="700" text-anchor="middle">7</text>
+    <rect x="288" y="112" width="64" height="40" rx="6" fill="#2a2825"/>
+    <text x="320" y="137" font-size="14" fill="#7a7265" font-family="monospace" text-anchor="middle">8</text>
+    <rect x="368" y="112" width="64" height="40" rx="6" fill="rgba(169,235,23,.15)" stroke="#a9eb17" stroke-width=".8"/>
+    <text x="400" y="137" font-size="14" fill="#a9eb17" font-family="monospace" text-anchor="middle">9</text>
+    <rect x="448" y="112" width="64" height="40" rx="6" fill="#2a2825"/>
+    <text x="480" y="137" font-size="14" fill="#7a7265" font-family="monospace" text-anchor="middle">10</text>
+
+    <!-- Event blocks -->
+    <rect x="208" y="160" width="144" height="22" rx="5" fill="#a9eb17"/>
+    <text x="280" y="175" font-size="9" fill="#1c1a17" font-family="monospace" font-weight="700" text-anchor="middle">Tech Summit 2025</text>
+    <rect x="288" y="160" width="224" height="22" rx="5" fill="rgba(169,235,23,.2)" stroke="#a9eb17" stroke-width=".8"/>
+    <text x="400" y="175" font-size="9" fill="#a9eb17" font-family="monospace" text-anchor="middle">Product Launch Event</text>
+
+    <!-- Stats row -->
+    <rect x="48" y="198" width="140" height="64" rx="8" fill="#1c1a17" stroke="#a9eb17" stroke-width=".8"/>
+    <text x="118" y="220" font-size="10" fill="#a9eb17" font-family="monospace" font-weight="700" text-anchor="middle">REGISTRATIONS</text>
+    <text x="118" y="248" font-size="22" fill="#a9eb17" font-family="monospace" font-weight="800" text-anchor="middle">248</text>
+
+    <rect x="200" y="198" width="140" height="64" rx="8" fill="#1c1a17" stroke="#a9eb17" stroke-width=".8"/>
+    <text x="270" y="220" font-size="10" fill="#a9eb17" font-family="monospace" font-weight="700" text-anchor="middle">TICKETS SOLD</text>
+    <text x="270" y="248" font-size="22" fill="#a9eb17" font-family="monospace" font-weight="800" text-anchor="middle">340</text>
+
+    <rect x="352" y="198" width="140" height="64" rx="8" fill="#1c1a17" stroke="#a9eb17" stroke-width=".8"/>
+    <text x="422" y="220" font-size="10" fill="#a9eb17" font-family="monospace" font-weight="700" text-anchor="middle">CAPACITY</text>
+    <!-- progress bar -->
+    <rect x="368" y="228" width="108" height="10" rx="5" fill="#2a2825"/>
+    <rect x="368" y="228" width="73" height="10" rx="5" fill="#a9eb17" opacity=".8"/>
+    <text x="422" y="252" font-size="9" fill="#a9eb17" font-family="monospace" text-anchor="middle" opacity=".7">340 / 500</text>
+
+    <!-- QR check-in section -->
+    <rect x="48" y="278" width="130" height="98" rx="8" fill="#1c1a17" stroke="#a9eb17" stroke-width=".8"/>
+    <text x="113" y="298" font-size="9" fill="#a9eb17" font-family="monospace" font-weight="700" text-anchor="middle">QR CHECK-IN</text>
+    <!-- QR code simplified -->
+    <rect x="66" y="306" width="12" height="12" rx="1" fill="#a9eb17"/>
+    <rect x="66" y="322" width="12" height="12" rx="1" fill="#a9eb17"/>
+    <rect x="82" y="306" width="6" height="6" rx="1" fill="#a9eb17" opacity=".6"/>
+    <rect x="82" y="314" width="6" height="6" rx="1" fill="#a9eb17" opacity=".4"/>
+    <rect x="82" y="322" width="6" height="6" rx="1" fill="#a9eb17" opacity=".6"/>
+    <rect x="92" y="306" width="12" height="12" rx="1" fill="#a9eb17" opacity=".7"/>
+    <rect x="92" y="322" width="12" height="12" rx="1" fill="#a9eb17" opacity=".7"/>
+    <rect x="108" y="306" width="6" height="6" rx="1" fill="#a9eb17" opacity=".5"/>
+    <rect x="108" y="316" width="6" height="6" rx="1" fill="#a9eb17" opacity=".3"/>
+    <rect x="116" y="308" width="6" height="8" rx="1" fill="#a9eb17" opacity=".6"/>
+    <rect x="116" y="322" width="6" height="8" rx="1" fill="#a9eb17" opacity=".4"/>
+    <text x="113" y="360" font-size="8" fill="#a9eb17" font-family="monospace" text-anchor="middle" opacity=".6">scan on mobile</text>
+
+    <!-- Ticket tiers -->
+    <rect x="190" y="278" width="152" height="98" rx="8" fill="#1c1a17" stroke="#a9eb17" stroke-width=".8"/>
+    <text x="266" y="296" font-size="9" fill="#a9eb17" font-family="monospace" font-weight="700" text-anchor="middle">TICKET TIERS</text>
+    <rect x="202" y="302" width="128" height="18" rx="5" fill="#a9eb17"/>
+    <text x="266" y="315" font-size="8" fill="#1c1a17" font-family="monospace" font-weight="700" text-anchor="middle">Early Bird — ₹499</text>
+    <rect x="202" y="325" width="128" height="18" rx="5" fill="rgba(169,235,23,.2)" stroke="#a9eb17" stroke-width=".8"/>
+    <text x="266" y="338" font-size="8" fill="#a9eb17" font-family="monospace" text-anchor="middle">Standard — ₹799</text>
+    <rect x="202" y="348" width="128" height="18" rx="5" fill="#2a2825" stroke="#3a3830" stroke-width=".8"/>
+    <text x="266" y="361" font-size="8" fill="#a9eb17" font-family="monospace" opacity=".5" text-anchor="middle">VIP — ₹1,499</text>
+
+    <!-- Attendee list -->
+    <rect x="354" y="278" width="200" height="98" rx="8" fill="#1c1a17" stroke="#a9eb17" stroke-width=".8"/>
+    <text x="454" y="296" font-size="9" fill="#a9eb17" font-family="monospace" font-weight="700" text-anchor="middle">ATTENDEES</text>
+    <circle cx="374" cy="318" r="10" fill="rgba(169,235,23,.2)"/>
+    <circle cx="390" cy="318" r="10" fill="rgba(169,235,23,.15)"/>
+    <circle cx="406" cy="318" r="10" fill="rgba(169,235,23,.12)"/>
+    <circle cx="422" cy="318" r="10" fill="rgba(169,235,23,.1)"/>
+    <text x="438" y="322" font-size="9" fill="#a9eb17" font-family="monospace" opacity=".7">+244 more</text>
+    <rect x="366" y="334" width="178" height="10" rx="5" fill="#2a2825"/>
+    <rect x="366" y="334" width="120" height="10" rx="5" fill="#a9eb17" opacity=".6"/>
+    <text x="454" y="362" font-size="8" fill="#a9eb17" font-family="monospace" text-anchor="middle" opacity=".5">248 / 500 registered</text>
+
+    <!-- Phone mockup for check-in app -->
+    <rect x="616" y="20" width="160" height="340" rx="22" fill="#1c1a17" stroke="#3a3830" stroke-width="2"/>
+    <rect x="626" y="30" width="140" height="320" rx="16" fill="#f5f2eb"/>
+    <!-- App header -->
+    <rect x="626" y="30" width="140" height="40" rx="16" fill="#a9eb17"/>
+    <rect x="626" y="60" width="140" height="10" rx="0" fill="#a9eb17"/>
+    <text x="696" y="56" font-size="10" fill="#1c1a17" font-family="monospace" font-weight="800" text-anchor="middle">CHECK-IN</text>
+    <!-- Scanner frame -->
+    <rect x="646" y="78" width="100" height="90" rx="8" fill="#1c1a17"/>
+    <rect x="652" y="84" width="88" height="78" rx="5" fill="#0e0d0b"/>
+    <!-- QR scan lines -->
+    <rect x="658" y="90" width="12" height="12" rx="1" fill="#a9eb17" opacity=".7"/>
+    <rect x="658" y="106" width="12" height="12" rx="1" fill="#a9eb17" opacity=".5"/>
+    <rect x="674" y="90" width="6" height="6" rx="1" fill="#a9eb17" opacity=".4"/>
+    <rect x="674" y="98" width="6" height="6" rx="1" fill="#a9eb17" opacity=".6"/>
+    <rect x="684" y="90" width="12" height="12" rx="1" fill="#a9eb17" opacity=".7"/>
+    <rect x="684" y="106" width="12" height="12" rx="1" fill="#a9eb17" opacity=".5"/>
+    <rect x="700" y="90" width="6" height="6" rx="1" fill="#a9eb17" opacity=".3"/>
+    <rect x="700" y="98" width="6" height="8" rx="1" fill="#a9eb17" opacity=".4"/>
+    <rect x="710" y="90" width="12" height="12" rx="1" fill="#a9eb17" opacity=".6"/>
+    <!-- Scan sweep line -->
+    <rect x="652" y="124" width="88" height="3" rx="1.5" fill="#a9eb17" opacity=".9"/>
+    <!-- Check-in confirmed -->
+    <rect x="638" y="178" width="116" height="44" rx="8" fill="#a9eb17"/>
+    <text x="696" y="197" font-size="9" fill="#1c1a17" font-family="monospace" font-weight="700" text-anchor="middle">CHECKED IN ✓</text>
+    <text x="696" y="212" font-size="8" fill="#1c1a17" font-family="monospace" text-anchor="middle" opacity=".7">Priya Sharma</text>
+    <!-- Counter -->
+    <rect x="638" y="232" width="116" height="44" rx="8" fill="#1c1a17" stroke="#a9eb17" stroke-width=".8"/>
+    <text x="696" y="250" font-size="8" fill="#a9eb17" font-family="monospace" font-weight="700" text-anchor="middle">ATTENDANCE</text>
+    <text x="696" y="268" font-size="16" fill="#a9eb17" font-family="monospace" font-weight="800" text-anchor="middle">187</text>
+    <!-- Live badge -->
+    <rect x="638" y="286" width="116" height="34" rx="8" fill="#0e0d0b" stroke="#a9eb17" stroke-width=".8"/>
+    <circle cx="652" cy="303" r="4" fill="#a9eb17"/>
+    <text x="672" y="307" font-size="9" fill="#a9eb17" font-family="monospace" font-weight="700">LIVE COUNT</text>
+
+    <!-- Connection dashed line -->
+    <path d="M 570 200 Q 593 200 616 200" stroke="#a9eb17" stroke-width="1.2" stroke-dasharray="5 4" opacity=".3"/>
+  </svg>
+</div>
+
+<!-- 3. OVERVIEW -->
+<section class="section" style="padding:6rem 0 4rem;">
+  <div class="container">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start;">
+      <div>
+        <span class="section-tag">What It Does</span>
+        <h2 class="section-heading" style="margin-top:.75rem; margin-bottom:1.5rem;">End-to-end event management from one dashboard</h2>
+        <p style="color:var(--text-muted); line-height:1.8; font-size:.9375rem;">An end-to-end event management platform for organisers who need more than a spreadsheet. Create events, publish ticket tiers, manage attendee lists, and run smooth check-ins — all from one dashboard.</p>
+        <ul style="margin-top:2rem; list-style:none; display:flex; flex-direction:column; gap:1rem;">
+          <li style="display:flex; gap:.875rem; align-items:flex-start;"><span class="highlight-dot"></span><span style="font-size:.9375rem; font-weight:600;">Drag-and-drop agenda builder</span></li>
+          <li style="display:flex; gap:.875rem; align-items:flex-start;"><span class="highlight-dot"></span><span style="font-size:.9375rem; font-weight:600;">QR code check-in</span></li>
+          <li style="display:flex; gap:.875rem; align-items:flex-start;"><span class="highlight-dot"></span><span style="font-size:.9375rem; font-weight:600;">Attendee communication tools</span></li>
+        </ul>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+        <div class="feature-card">
+          <h4>Event Builder</h4>
+          <p>Multi-track sessions, speaker profiles, and venue maps in a drag-and-drop editor.</p>
+        </div>
+        <div class="feature-card">
+          <h4>Ticketing</h4>
+          <p>Free, paid, and early-bird tiers with Stripe payments and instant confirmation.</p>
+        </div>
+        <div class="feature-card">
+          <h4>Attendee Management</h4>
+          <p>Registrations, waitlists, badge generation, and communication tools.</p>
+        </div>
+        <div class="feature-card">
+          <h4>Check-in App</h4>
+          <p>QR scan on mobile with real-time attendance count visible to all organisers.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. HOW IT WORKS -->
+<section style="padding:4rem 0; background:var(--surface-2);">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:3rem;">
+      <span class="section-tag">How It Works</span>
+      <h2 class="section-heading" style="margin-top:.75rem;">From creation to check-in</h2>
+    </div>
+    <div style="display:flex; align-items:flex-start; gap:0; max-width:900px; margin:0 auto;">
+      <div style="flex:1; text-align:center; padding:0 1.25rem;">
+        <div style="display:flex; justify-content:center; margin-bottom:1.25rem;"><span class="step-num">1</span></div>
+        <h4 style="font-weight:700; font-size:.9375rem; margin-bottom:.75rem;">Create Event</h4>
+        <p style="color:var(--text-muted); font-size:.875rem; line-height:1.6;">Build your agenda, add speakers, set venue details, and configure ticket tiers.</p>
+      </div>
+      <div class="step-connector" style="margin-top:1.25rem;"></div>
+      <div style="flex:1; text-align:center; padding:0 1.25rem;">
+        <div style="display:flex; justify-content:center; margin-bottom:1.25rem;"><span class="step-num">2</span></div>
+        <h4 style="font-weight:700; font-size:.9375rem; margin-bottom:.75rem;">Publish Ticket Page</h4>
+        <p style="color:var(--text-muted); font-size:.875rem; line-height:1.6;">Share a branded registration page and start selling tickets via Stripe.</p>
+      </div>
+      <div class="step-connector" style="margin-top:1.25rem;"></div>
+      <div style="flex:1; text-align:center; padding:0 1.25rem;">
+        <div style="display:flex; justify-content:center; margin-bottom:1.25rem;"><span class="step-num">3</span></div>
+        <h4 style="font-weight:700; font-size:.9375rem; margin-bottom:.75rem;">Manage Registrations</h4>
+        <p style="color:var(--text-muted); font-size:.875rem; line-height:1.6;">Track attendees, manage waitlists, and send automated reminders.</p>
+      </div>
+      <div class="step-connector" style="margin-top:1.25rem;"></div>
+      <div style="flex:1; text-align:center; padding:0 1.25rem;">
+        <div style="display:flex; justify-content:center; margin-bottom:1.25rem;"><span class="step-num">4</span></div>
+        <h4 style="font-weight:700; font-size:.9375rem; margin-bottom:.75rem;">Run Check-in</h4>
+        <p style="color:var(--text-muted); font-size:.875rem; line-height:1.6;">Scan QR codes on event day for fast, real-time attendance tracking.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. TECH STACK -->
+<section style="padding:4rem 0;">
+  <div class="container" style="text-align:center;">
+    <span class="section-tag">Tech Stack</span>
+    <h2 class="section-heading" style="margin-top:.75rem; margin-bottom:2.5rem;">Built with</h2>
+    <div style="display:flex; flex-wrap:wrap; gap:.75rem; justify-content:center;">
+      <span class="tech-pill">React</span>
+      <span class="tech-pill">Node.js</span>
+      <span class="tech-pill">PostgreSQL</span>
+      <span class="tech-pill">Stripe</span>
+      <span class="tech-pill">Firebase</span>
+      <span class="tech-pill">QR Code API</span>
+    </div>
+  </div>
+</section>
+
+<!-- 6. CTA BAND -->
+<section style="padding:4rem 0 6rem;">
+  <div class="container">
+    <div class="cta-band">
+      <span class="section-tag" style="color:#7ab800; background:none; padding:0; letter-spacing:.1em;">SaaS / Events</span>
+      <h2 class="section-heading" style="color:#fff; margin-top:.75rem; margin-bottom:1rem;">Start a similar project</h2>
+      <p style="color:rgba(255,255,255,.55); font-size:.9375rem; max-width:480px; margin:0 auto 2.5rem; line-height:1.7;">Need an event management platform for your organisation or as a standalone SaaS product? Let's build it.</p>
+      <a href="../index.html#contact" class="btn-primary" style="font-size:.9375rem; padding:.9rem 2.25rem;">
+        Get In Touch
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 3l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="../index.html" style="display:flex; align-items:center; text-decoration:none; margin-bottom:1rem;">
+          <img src="../assets/logos/text-and-logo - horizontal.svg" alt="CodeWeavers" style="height:2.375rem; width:auto;" />
+        </a>
+        <p style="color:var(--text-muted); font-size:.875rem; line-height:1.7; max-width:240px;">Custom software solutions for ambitious businesses.</p>
+        <div style="display:flex; gap:.5rem; margin-top:1.25rem;">
+          <a href="https://www.linkedin.com/company/the-code-weavers" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn"><iconify-icon icon="mdi:linkedin" width="16" height="16"></iconify-icon></a>
+          <a href="https://twitter.com/thecodeweavers" target="_blank" rel="noopener" class="social-btn" aria-label="Twitter / X"><iconify-icon icon="mdi:twitter" width="16" height="16"></iconify-icon></a>
+          <a href="https://github.com/thecodeweavers" target="_blank" rel="noopener" class="social-btn" aria-label="GitHub"><iconify-icon icon="mdi:github" width="16" height="16"></iconify-icon></a>
+          <a href="https://www.instagram.com/thecodeweavers" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram"><iconify-icon icon="mdi:instagram" width="16" height="16"></iconify-icon></a>
+        </div>
+      </div>
+      <div>
+        <h5 style="font-family:'Instrument Sans',sans-serif; font-weight:700; font-size:.8125rem; margin-bottom:1rem; text-transform:uppercase; letter-spacing:.06em;">Services</h5>
+        <a href="../index.html#services" class="footer-link">Microsoft Dynamics 365</a>
+        <a href="../index.html#services" class="footer-link">Azure Development</a>
+        <a href="../index.html#services" class="footer-link">Power BI</a>
+        <a href="../index.html#services" class="footer-link">Mobile &amp; ERP</a>
+        <a href="../index.html#services" class="footer-link">AI Solutions</a>
+      </div>
+      <div>
+        <h5 style="font-family:'Instrument Sans',sans-serif; font-weight:700; font-size:.8125rem; margin-bottom:1rem; text-transform:uppercase; letter-spacing:.06em;">Company</h5>
+        <a href="../index.html#about" class="footer-link">About</a>
+        <a href="../projects.html" class="footer-link">All Projects</a>
+        <a href="../index.html#process" class="footer-link">Process</a>
+        <a href="../index.html#testimonials" class="footer-link">Clients</a>
+      </div>
+      <div>
+        <h5 style="font-family:'Instrument Sans',sans-serif; font-weight:700; font-size:.8125rem; margin-bottom:1rem; text-transform:uppercase; letter-spacing:.06em;">Contact</h5>
+        <a href="mailto:vrk@thecodeweavers.com" class="footer-link">vrk@thecodeweavers.com</a>
+        <span class="footer-link" style="cursor:default;">+91 99620 97988</span>
+        <span class="footer-link" style="cursor:default;">Chennai, India</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 The Code Weavers. All rights reserved.</p>
+      <div style="display:flex;gap:1.5rem;"><a href="#" class="footer-bottom-link">Privacy</a><a href="#" class="footer-bottom-link">Terms</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 30) { navbar.classList.add('scrolled'); } else { navbar.classList.remove('scrolled'); }
+  });
+  function openMobileNav() { document.getElementById('mobile-nav').classList.add('open'); }
+  function closeMobileNav() { document.getElementById('mobile-nav').classList.remove('open'); }
+</script>
+</body>
+</html>

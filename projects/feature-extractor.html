@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feature Extractor — The Code Weavers</title>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <style>
+    .detail-hero { padding: 9rem 0 5rem; }
+    .breadcrumb { display:flex; align-items:center; gap:.5rem; font-size:.8125rem; color:var(--text-muted); margin-bottom:2rem; }
+    .breadcrumb a { color:var(--text-muted); text-decoration:none; transition:color .2s; }
+    .breadcrumb a:hover { color:var(--text); }
+    .breadcrumb .sep { opacity:.4; }
+    .stat-chip { background:var(--surface-2); border:1px solid var(--border); border-radius:6.25rem; padding:.375rem 1rem; font-size:.8rem; font-weight:600; color:var(--text); white-space:nowrap; }
+    .visual-panel { background:#1c1a17; border-radius:1.5rem; margin:0 2rem; min-height:400px; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+    .feature-card { background:var(--surface); border:1px solid var(--border); border-radius:1rem; padding:1.5rem; }
+    .feature-card h4 { font-size:.9375rem; font-weight:700; margin-bottom:.5rem; }
+    .feature-card p { font-size:.875rem; color:var(--text-muted); line-height:1.6; }
+    .step-num { width:2.5rem; height:2.5rem; border-radius:50%; background:#1c1a17; color:#c8f060; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:.9rem; flex-shrink:0; }
+    .step-connector { flex:1; height:1px; background:var(--border); }
+    .tech-pill { background:var(--surface-2); border:1px solid var(--border); border-radius:6.25rem; padding:.375rem 1rem; font-size:.8rem; font-weight:600; }
+    .cta-band { background:#1c1a17; border-radius:1.5rem; padding:4rem; text-align:center; }
+    .highlight-dot { width:6px; height:6px; border-radius:50%; background:#a9eb17; flex-shrink:0; margin-top:.4rem; }
+    @media (max-width:768px) {
+      .visual-panel { margin:0 1rem; }
+      .cta-band { padding:2.5rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="../index.html" style="display:flex; align-items:center; text-decoration:none;">
+        <img src="../assets/logos/text-and-logo - horizontal.svg" alt="CodeWeavers" style="height:2.375rem; width:auto;" />
+      </a>
+      <div class="nav-links" style="display:flex; align-items:center; gap:2rem;">
+        <a href="../index.html#services" class="nav-link">Services</a>
+        <a href="../index.html#work" class="nav-link">Work</a>
+        <a href="../index.html#process" class="nav-link">Process</a>
+        <a href="../index.html#about" class="nav-link">About</a>
+      </div>
+      <div style="display:flex; align-items:center; gap:.875rem;">
+        <div class="nav-divider nav-cta"></div>
+        <a href="../index.html#contact" class="nav-btn-delos nav-cta">Start a Project</a>
+        <button id="burger" class="nav-burger" onclick="openMobileNav()">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 5h16M3 11h16M3 17h16" stroke="var(--text)" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div id="mobile-nav">
+  <button class="mobile-nav-close" onclick="closeMobileNav()">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="var(--text)" stroke-width="2" stroke-linecap="round"/></svg>
+  </button>
+  <a href="../index.html#services">Services</a>
+  <a href="../index.html#work">Work</a>
+  <a href="../index.html#process">Process</a>
+  <a href="../index.html#about">About</a>
+  <a href="../index.html#contact" class="btn-primary">Start a Project</a>
+</div>
+
+<!-- 1. HERO BAND -->
+<section class="detail-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span class="sep">›</span>
+      <a href="../projects.html">All Projects</a>
+      <span class="sep">›</span>
+      <span style="color:var(--text); font-weight:600;">Feature Extractor</span>
+    </nav>
+    <span class="section-tag">AI / Engineering</span>
+    <h1 class="section-heading" style="margin-top:.75rem; max-width:680px;">Feature Extractor</h1>
+    <p style="color:var(--text-muted); font-size:1.0625rem; line-height:1.75; max-width:600px; margin-top:1.25rem;">AI that reads engineering drawings — extracting structure, dimensions, and metadata at scale.</p>
+    <div style="display:flex; flex-wrap:wrap; gap:.75rem; margin-top:2rem;">
+      <span class="stat-chip">95% extraction accuracy</span>
+      <span class="stat-chip">API-ready</span>
+      <span class="stat-chip">Supports DXF · PDF · PNG</span>
+    </div>
+  </div>
+</section>
+
+<!-- 2. VISUAL PANEL -->
+<div class="visual-panel">
+  <svg viewBox="0 0 900 400" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; max-width:900px; padding:2.5rem;">
+    <!-- Grid background -->
+    <defs>
+      <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(169,235,23,.06)" stroke-width="1"/>
+      </pattern>
+    </defs>
+    <rect width="900" height="400" fill="url(#grid)"/>
+
+    <!-- Engineering Drawing Sheet -->
+    <rect x="40" y="40" width="340" height="310" rx="8" fill="#242220" stroke="#a9eb17" stroke-width="1.5"/>
+    <!-- Title block -->
+    <rect x="40" y="290" width="340" height="60" rx="0" fill="#2a2825" stroke="#a9eb17" stroke-width="1"/>
+    <line x1="200" y1="290" x2="200" y2="350" stroke="#a9eb17" stroke-width="1" opacity=".5"/>
+    <rect x="52" y="300" width="80" height="6" rx="3" fill="#a9eb17" opacity=".4"/>
+    <rect x="52" y="312" width="100" height="5" rx="2.5" fill="#a9eb17" opacity=".25"/>
+    <rect x="52" y="323" width="70" height="5" rx="2.5" fill="#a9eb17" opacity=".25"/>
+    <rect x="212" y="300" width="60" height="6" rx="3" fill="#a9eb17" opacity=".4"/>
+    <rect x="212" y="312" width="90" height="5" rx="2.5" fill="#a9eb17" opacity=".25"/>
+    <!-- Part geometry -->
+    <rect x="80" y="70" width="220" height="160" rx="8" fill="none" stroke="#a9eb17" stroke-width="1.5"/>
+    <rect x="110" y="95" width="160" height="110" rx="5" fill="rgba(169,235,23,.08)" stroke="#a9eb17" stroke-width="1" stroke-dasharray="6 4"/>
+    <!-- Dimension lines -->
+    <line x1="80" y1="250" x2="300" y2="250" stroke="#6fa00a" stroke-width="1.2"/>
+    <line x1="80" y1="246" x2="80" y2="254" stroke="#6fa00a" stroke-width="1.2"/>
+    <line x1="300" y1="246" x2="300" y2="254" stroke="#6fa00a" stroke-width="1.2"/>
+    <rect x="158" y="238" width="64" height="16" rx="4" fill="#1c1a17"/>
+    <text x="190" y="250" font-size="9" fill="#a9eb17" font-family="monospace" font-weight="700" text-anchor="middle">220.00 mm</text>
+    <!-- Side dimension -->
+    <line x1="50" y1="70" x2="50" y2="230" stroke="#6fa00a" stroke-width="1.2"/>
+    <line x1="46" y1="70" x2="54" y2="70" stroke="#6fa00a" stroke-width="1.2"/>
+    <line x1="46" y1="230" x2="54" y2="230" stroke="#6fa00a" stroke-width="1.2"/>
+    <text x="36" y="155" font-size="9" fill="#a9eb17" font-family="monospace" text-anchor="middle" transform="rotate(-90 36 155)">160.00</text>
+    <!-- GD&T symbol -->
+    <rect x="110" y="195" width="68" height="26" rx="4" fill="none" stroke="#a9eb17" stroke-width="1.2"/>
+    <line x1="145" y1="195" x2="145" y2="221" stroke="#a9eb17" stroke-width="1"/>
+    <circle cx="128" cy="208" r="7" fill="none" stroke="#a9eb17" stroke-width="1.2"/>
+    <text x="157" y="212" font-size="9" fill="#a9eb17" font-family="monospace">0.02</text>
+
+    <!-- Arrow connector -->
+    <path d="M 390 200 L 460 200" stroke="#a9eb17" stroke-width="2" stroke-dasharray="6 4"/>
+    <polygon points="458,195 470,200 458,205" fill="#a9eb17"/>
+
+    <!-- AI Processing Engine -->
+    <rect x="470" y="120" width="180" height="160" rx="12" fill="#0e0d0b" stroke="#a9eb17" stroke-width="1.5"/>
+    <rect x="470" y="120" width="180" height="38" rx="12" fill="#a9eb17"/>
+    <rect x="470" y="146" width="180" height="12" rx="0" fill="#a9eb17"/>
+    <text x="560" y="146" font-size="11" fill="#1c1a17" font-family="monospace" font-weight="800" text-anchor="middle">AI ENGINE</text>
+    <text x="560" y="181" font-size="9" fill="#a9eb17" font-family="monospace" text-anchor="middle" opacity=".8">ANALYSING LAYERS…</text>
+    <!-- progress bars -->
+    <rect x="490" y="196" width="140" height="7" rx="3.5" fill="#2a2825"/>
+    <rect x="490" y="196" width="126" height="7" rx="3.5" fill="#a9eb17" opacity=".7"/>
+    <text x="490" y="222" font-size="8" fill="#a9eb17" font-family="monospace" opacity=".5">OCR pass</text>
+    <rect x="490" y="226" width="140" height="7" rx="3.5" fill="#2a2825"/>
+    <rect x="490" y="226" width="98" height="7" rx="3.5" fill="#a9eb17" opacity=".5"/>
+    <text x="490" y="252" font-size="8" fill="#a9eb17" font-family="monospace" opacity=".5">geometry pass</text>
+    <rect x="490" y="256" width="140" height="7" rx="3.5" fill="#2a2825"/>
+    <rect x="490" y="256" width="140" height="7" rx="3.5" fill="#a9eb17" opacity=".3"/>
+
+    <!-- Arrow to output -->
+    <path d="M 660 200 L 720 200" stroke="#a9eb17" stroke-width="2" stroke-dasharray="6 4"/>
+    <polygon points="718,195 730,200 718,205" fill="#a9eb17"/>
+
+    <!-- JSON Output -->
+    <rect x="730" y="60" width="150" height="280" rx="12" fill="#0e0d0b" stroke="#a9eb17" stroke-width="1.5"/>
+    <rect x="730" y="60" width="150" height="30" rx="12" fill="#a9eb17"/>
+    <rect x="730" y="80" width="150" height="10" rx="0" fill="#a9eb17"/>
+    <text x="805" y="81" font-size="10" fill="#1c1a17" font-family="monospace" font-weight="800" text-anchor="middle">JSON</text>
+    <text x="745" y="112" font-size="8" fill="#a9eb17" font-family="monospace" opacity=".9">&#123;</text>
+    <text x="752" y="127" font-size="8" fill="#6fa00a" font-family="monospace">"bom": [&#123;</text>
+    <text x="760" y="142" font-size="8" fill="#a9eb17" font-family="monospace" opacity=".7">  "item": 1,</text>
+    <text x="760" y="157" font-size="8" fill="#a9eb17" font-family="monospace" opacity=".7">  "qty": 4,</text>
+    <text x="752" y="172" font-size="8" fill="#6fa00a" font-family="monospace">&#125;],</text>
+    <text x="752" y="187" font-size="8" fill="#6fa00a" font-family="monospace">"dims": [&#123;</text>
+    <text x="760" y="202" font-size="8" fill="#a9eb17" font-family="monospace" opacity=".7">  "v": 220.0,</text>
+    <text x="760" y="217" font-size="8" fill="#a9eb17" font-family="monospace" opacity=".7">  "unit":"mm"</text>
+    <text x="752" y="232" font-size="8" fill="#6fa00a" font-family="monospace">&#125;],</text>
+    <text x="752" y="247" font-size="8" fill="#6fa00a" font-family="monospace">"gdt": [&#123;</text>
+    <text x="760" y="262" font-size="8" fill="#a9eb17" font-family="monospace" opacity=".7">  "sym":"⊙",</text>
+    <text x="760" y="277" font-size="8" fill="#a9eb17" font-family="monospace" opacity=".7">  "tol": 0.02</text>
+    <text x="752" y="292" font-size="8" fill="#a9eb17" font-family="monospace" opacity=".9">&#125; ]&#125;</text>
+
+    <!-- Label badges -->
+    <rect x="90" y="68" width="78" height="18" rx="5" fill="#1c1a17"/>
+    <text x="129" y="81" font-size="8" fill="#a9eb17" font-family="monospace" font-weight="700" text-anchor="middle">DRAWING INPUT</text>
+    <rect x="476" y="118" width="72" height="18" rx="5" fill="transparent"/>
+    <rect x="730" y="58" width="68" height="18" rx="5" fill="transparent"/>
+  </svg>
+</div>
+
+<!-- 3. OVERVIEW -->
+<section class="section" style="padding:6rem 0 4rem;">
+  <div class="container">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start;">
+      <!-- Left -->
+      <div>
+        <span class="section-tag">What It Does</span>
+        <h2 class="section-heading" style="margin-top:.75rem; margin-bottom:1.5rem;">Automates the interpretation of engineering drawings</h2>
+        <p style="color:var(--text-muted); line-height:1.8; font-size:.9375rem;">Using computer vision and OCR, the system identifies and extracts Bill of Materials (BOM) tables, title block fields, GD&amp;T symbols, dimension annotations, and geometric tolerances — replacing hours of manual data entry with a single API call.</p>
+        <ul style="margin-top:2rem; list-style:none; display:flex; flex-direction:column; gap:1rem;">
+          <li style="display:flex; gap:.875rem; align-items:flex-start;">
+            <span class="highlight-dot"></span>
+            <span style="font-size:.9375rem; font-weight:600;">Zero manual data entry</span>
+          </li>
+          <li style="display:flex; gap:.875rem; align-items:flex-start;">
+            <span class="highlight-dot"></span>
+            <span style="font-size:.9375rem; font-weight:600;">Works on scanned and digital drawings</span>
+          </li>
+          <li style="display:flex; gap:.875rem; align-items:flex-start;">
+            <span class="highlight-dot"></span>
+            <span style="font-size:.9375rem; font-weight:600;">Integrates with ERP &amp; PLM systems</span>
+          </li>
+        </ul>
+      </div>
+      <!-- Right: feature cards -->
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+        <div class="feature-card">
+          <h4>BOM Extraction</h4>
+          <p>Parses multi-level BOMs from drawing sheets with part numbers and quantities.</p>
+        </div>
+        <div class="feature-card">
+          <h4>Title Block Parser</h4>
+          <p>Captures part number, revision, material, scale, and drawing date fields.</p>
+        </div>
+        <div class="feature-card">
+          <h4>GD&amp;T Recognition</h4>
+          <p>Identifies flatness, perpendicularity, true position, and circularity symbols.</p>
+        </div>
+        <div class="feature-card">
+          <h4>Dimension Extraction</h4>
+          <p>Reads linear, angular, and radial dimensions with tolerance values.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. HOW IT WORKS -->
+<section style="padding:4rem 0; background:var(--surface-2);">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:3rem;">
+      <span class="section-tag">How It Works</span>
+      <h2 class="section-heading" style="margin-top:.75rem;">Three steps, one API call</h2>
+    </div>
+    <div style="display:flex; align-items:flex-start; gap:0; max-width:800px; margin:0 auto;">
+      <!-- Step 1 -->
+      <div style="flex:1; text-align:center; padding:0 1.5rem;">
+        <div style="display:flex; justify-content:center; margin-bottom:1.25rem;">
+          <span class="step-num">1</span>
+        </div>
+        <h4 style="font-weight:700; font-size:.9375rem; margin-bottom:.75rem;">Upload Drawing</h4>
+        <p style="color:var(--text-muted); font-size:.875rem; line-height:1.6;">Send a PDF, PNG, or DXF file via the REST endpoint or client SDK.</p>
+      </div>
+      <div class="step-connector" style="margin-top:1.25rem;"></div>
+      <!-- Step 2 -->
+      <div style="flex:1; text-align:center; padding:0 1.5rem;">
+        <div style="display:flex; justify-content:center; margin-bottom:1.25rem;">
+          <span class="step-num">2</span>
+        </div>
+        <h4 style="font-weight:700; font-size:.9375rem; margin-bottom:.75rem;">AI Analyses Layers</h4>
+        <p style="color:var(--text-muted); font-size:.875rem; line-height:1.6;">Computer vision and OCR pipelines process geometry, text, and symbol layers in parallel.</p>
+      </div>
+      <div class="step-connector" style="margin-top:1.25rem;"></div>
+      <!-- Step 3 -->
+      <div style="flex:1; text-align:center; padding:0 1.5rem;">
+        <div style="display:flex; justify-content:center; margin-bottom:1.25rem;">
+          <span class="step-num">3</span>
+        </div>
+        <h4 style="font-weight:700; font-size:.9375rem; margin-bottom:.75rem;">Structured JSON Returned</h4>
+        <p style="color:var(--text-muted); font-size:.875rem; line-height:1.6;">All extracted data is returned as structured JSON ready for ERP or PLM ingestion.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. TECH STACK -->
+<section style="padding:4rem 0;">
+  <div class="container" style="text-align:center;">
+    <span class="section-tag">Tech Stack</span>
+    <h2 class="section-heading" style="margin-top:.75rem; margin-bottom:2.5rem;">Built with</h2>
+    <div style="display:flex; flex-wrap:wrap; gap:.75rem; justify-content:center;">
+      <span class="tech-pill">Python</span>
+      <span class="tech-pill">OpenCV</span>
+      <span class="tech-pill">Tesseract OCR</span>
+      <span class="tech-pill">FastAPI</span>
+      <span class="tech-pill">Azure Computer Vision</span>
+      <span class="tech-pill">REST API</span>
+    </div>
+  </div>
+</section>
+
+<!-- 6. CTA BAND -->
+<section style="padding:4rem 0 6rem;">
+  <div class="container">
+    <div class="cta-band">
+      <span class="section-tag" style="color:#7ab800; background:none; padding:0; letter-spacing:.1em;">AI / Engineering</span>
+      <h2 class="section-heading" style="color:#fff; margin-top:.75rem; margin-bottom:1rem;">Start a similar project</h2>
+      <p style="color:rgba(255,255,255,.55); font-size:.9375rem; max-width:480px; margin:0 auto 2.5rem; line-height:1.7;">Let's discuss how AI-powered drawing analysis can eliminate manual data entry from your engineering workflows.</p>
+      <a href="../index.html#contact" class="btn-primary" style="font-size:.9375rem; padding:.9rem 2.25rem;">
+        Get In Touch
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 3l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="../index.html" style="display:flex; align-items:center; text-decoration:none; margin-bottom:1rem;">
+          <img src="../assets/logos/text-and-logo - horizontal.svg" alt="CodeWeavers" style="height:2.375rem; width:auto;" />
+        </a>
+        <p style="color:var(--text-muted); font-size:.875rem; line-height:1.7; max-width:240px;">Custom software solutions for ambitious businesses.</p>
+        <div style="display:flex; gap:.5rem; margin-top:1.25rem;">
+          <a href="https://www.linkedin.com/company/the-code-weavers" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn"><iconify-icon icon="mdi:linkedin" width="16" height="16"></iconify-icon></a>
+          <a href="https://twitter.com/thecodeweavers" target="_blank" rel="noopener" class="social-btn" aria-label="Twitter / X"><iconify-icon icon="mdi:twitter" width="16" height="16"></iconify-icon></a>
+          <a href="https://github.com/thecodeweavers" target="_blank" rel="noopener" class="social-btn" aria-label="GitHub"><iconify-icon icon="mdi:github" width="16" height="16"></iconify-icon></a>
+          <a href="https://www.instagram.com/thecodeweavers" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram"><iconify-icon icon="mdi:instagram" width="16" height="16"></iconify-icon></a>
+        </div>
+      </div>
+      <div>
+        <h5 style="font-family:'Instrument Sans',sans-serif; font-weight:700; font-size:.8125rem; margin-bottom:1rem; text-transform:uppercase; letter-spacing:.06em;">Services</h5>
+        <a href="../index.html#services" class="footer-link">Microsoft Dynamics 365</a>
+        <a href="../index.html#services" class="footer-link">Azure Development</a>
+        <a href="../index.html#services" class="footer-link">Power BI</a>
+        <a href="../index.html#services" class="footer-link">Mobile &amp; ERP</a>
+        <a href="../index.html#services" class="footer-link">AI Solutions</a>
+      </div>
+      <div>
+        <h5 style="font-family:'Instrument Sans',sans-serif; font-weight:700; font-size:.8125rem; margin-bottom:1rem; text-transform:uppercase; letter-spacing:.06em;">Company</h5>
+        <a href="../index.html#about" class="footer-link">About</a>
+        <a href="../projects.html" class="footer-link">All Projects</a>
+        <a href="../index.html#process" class="footer-link">Process</a>
+        <a href="../index.html#testimonials" class="footer-link">Clients</a>
+      </div>
+      <div>
+        <h5 style="font-family:'Instrument Sans',sans-serif; font-weight:700; font-size:.8125rem; margin-bottom:1rem; text-transform:uppercase; letter-spacing:.06em;">Contact</h5>
+        <a href="mailto:vrk@thecodeweavers.com" class="footer-link">vrk@thecodeweavers.com</a>
+        <span class="footer-link" style="cursor:default;">+91 99620 97988</span>
+        <span class="footer-link" style="cursor:default;">Chennai, India</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 The Code Weavers. All rights reserved.</p>
+      <div style="display:flex;gap:1.5rem;">
+        <a href="#" class="footer-bottom-link">Privacy</a>
+        <a href="#" class="footer-bottom-link">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 30) { navbar.classList.add('scrolled'); }
+    else { navbar.classList.remove('scrolled'); }
+  });
+  function openMobileNav() { document.getElementById('mobile-nav').classList.add('open'); }
+  function closeMobileNav() { document.getElementById('mobile-nav').classList.remove('open'); }
+</script>
+</body>
+</html>

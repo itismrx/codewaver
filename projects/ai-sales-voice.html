@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Sales &amp; Voice Tools — The Code Weavers</title>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <style>
+    .detail-hero { padding: 9rem 0 5rem; }
+    .breadcrumb { display:flex; align-items:center; gap:.5rem; font-size:.8125rem; color:var(--text-muted); margin-bottom:2rem; }
+    .breadcrumb a { color:var(--text-muted); text-decoration:none; transition:color .2s; }
+    .breadcrumb a:hover { color:var(--text); }
+    .breadcrumb .sep { opacity:.4; }
+    .stat-chip { background:var(--surface-2); border:1px solid var(--border); border-radius:6.25rem; padding:.375rem 1rem; font-size:.8rem; font-weight:600; color:var(--text); white-space:nowrap; }
+    .visual-panel { background:#1c1a17; border-radius:1.5rem; margin:0 2rem; min-height:400px; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+    .feature-card { background:var(--surface); border:1px solid var(--border); border-radius:1rem; padding:1.5rem; }
+    .feature-card h4 { font-size:.9375rem; font-weight:700; margin-bottom:.5rem; }
+    .feature-card p { font-size:.875rem; color:var(--text-muted); line-height:1.6; }
+    .step-num { width:2.5rem; height:2.5rem; border-radius:50%; background:#1c1a17; color:#c8f060; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:.9rem; flex-shrink:0; }
+    .step-connector { flex:1; height:1px; background:var(--border); }
+    .tech-pill { background:var(--surface-2); border:1px solid var(--border); border-radius:6.25rem; padding:.375rem 1rem; font-size:.8rem; font-weight:600; }
+    .cta-band { background:#1c1a17; border-radius:1.5rem; padding:4rem; text-align:center; }
+    .highlight-dot { width:6px; height:6px; border-radius:50%; background:#a9eb17; flex-shrink:0; margin-top:.4rem; }
+    @media (max-width:768px) {
+      .visual-panel { margin:0 1rem; }
+      .cta-band { padding:2.5rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="../index.html" style="display:flex; align-items:center; text-decoration:none;">
+        <img src="../assets/logos/text-and-logo - horizontal.svg" alt="CodeWeavers" style="height:2.375rem; width:auto;" />
+      </a>
+      <div class="nav-links" style="display:flex; align-items:center; gap:2rem;">
+        <a href="../index.html#services" class="nav-link">Services</a>
+        <a href="../index.html#work" class="nav-link">Work</a>
+        <a href="../index.html#process" class="nav-link">Process</a>
+        <a href="../index.html#about" class="nav-link">About</a>
+      </div>
+      <div style="display:flex; align-items:center; gap:.875rem;">
+        <div class="nav-divider nav-cta"></div>
+        <a href="../index.html#contact" class="nav-btn-delos nav-cta">Start a Project</a>
+        <button id="burger" class="nav-burger" onclick="openMobileNav()">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 5h16M3 11h16M3 17h16" stroke="var(--text)" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div id="mobile-nav">
+  <button class="mobile-nav-close" onclick="closeMobileNav()">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="var(--text)" stroke-width="2" stroke-linecap="round"/></svg>
+  </button>
+  <a href="../index.html#services">Services</a>
+  <a href="../index.html#work">Work</a>
+  <a href="../index.html#process">Process</a>
+  <a href="../index.html#about">About</a>
+  <a href="../index.html#contact" class="btn-primary">Start a Project</a>
+</div>
+
+<!-- 1. HERO BAND -->
+<section class="detail-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span class="sep">›</span>
+      <a href="../projects.html">All Projects</a>
+      <span class="sep">›</span>
+      <span style="color:var(--text); font-weight:600;">AI Sales &amp; Voice Tools</span>
+    </nav>
+    <span class="section-tag">AI / Sales Automation</span>
+    <h1 class="section-heading" style="margin-top:.75rem; max-width:680px;">AI Sales &amp; Voice Tools</h1>
+    <p style="color:var(--text-muted); font-size:1.0625rem; line-height:1.75; max-width:620px; margin-top:1.25rem;">Automate sales pipelines, purchase orders, and voice content — connected to your existing CRM.</p>
+    <div style="display:flex; flex-wrap:wrap; gap:.75rem; margin-top:2rem;">
+      <span class="stat-chip">Salesforce · Dynamics · Oracle</span>
+      <span class="stat-chip">Voice synthesis in 12 languages</span>
+      <span class="stat-chip">PO processing in under 3s</span>
+    </div>
+  </div>
+</section>
+
+<!-- 2. VISUAL PANEL -->
+<div class="visual-panel">
+  <svg viewBox="0 0 900 400" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; max-width:900px; padding:2.5rem;">
+    <defs>
+      <pattern id="grid2" width="40" height="40" patternUnits="userSpaceOnUse">
+        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(169,235,23,.05)" stroke-width="1"/>
+      </pattern>
+    </defs>
+    <rect width="900" height="400" fill="url(#grid2)"/>
+
+    <!-- CRM card -->
+    <rect x="30" y="60" width="240" height="280" rx="14" fill="#242220" stroke="#a9eb17" stroke-width="1.5"/>
+    <rect x="30" y="60" width="240" height="44" rx="14" fill="#a9eb17"/>
+    <rect x="30" y="94" width="240" height="10" rx="0" fill="#a9eb17"/>
+    <text x="150" y="90" font-size="12" fill="#1c1a17" font-family="monospace" font-weight="800" text-anchor="middle">SALES PIPELINE</text>
+
+    <!-- Pipeline stages -->
+    <text x="50" y="130" font-size="9" fill="#a9eb17" font-family="monospace" opacity=".6">LEAD SCORING</text>
+    <rect x="50" y="136" width="190" height="10" rx="5" fill="#2a2825"/>
+    <rect x="50" y="136" width="162" height="10" rx="5" fill="#a9eb17" opacity=".8"/>
+
+    <text x="50" y="164" font-size="9" fill="#a9eb17" font-family="monospace" opacity=".6">FOLLOW-UP SEQ</text>
+    <rect x="50" y="170" width="190" height="10" rx="5" fill="#2a2825"/>
+    <rect x="50" y="170" width="120" height="10" rx="5" fill="#a9eb17" opacity=".6"/>
+
+    <text x="50" y="198" font-size="9" fill="#a9eb17" font-family="monospace" opacity=".6">QUOTE GENERATION</text>
+    <rect x="50" y="204" width="190" height="10" rx="5" fill="#2a2825"/>
+    <rect x="50" y="204" width="180" height="10" rx="5" fill="#a9eb17" opacity=".7"/>
+
+    <text x="50" y="232" font-size="9" fill="#a9eb17" font-family="monospace" opacity=".6">CLOSE RATE</text>
+    <rect x="50" y="238" width="190" height="10" rx="5" fill="#2a2825"/>
+    <rect x="50" y="238" width="90" height="10" rx="5" fill="#a9eb17" opacity=".5"/>
+
+    <!-- CRM connector badges -->
+    <rect x="44" y="268" width="48" height="24" rx="6" fill="#1b5f9c" opacity=".9"/>
+    <text x="68" y="283" font-size="9" fill="#fff" font-family="monospace" font-weight="700" text-anchor="middle">SFDC</text>
+    <rect x="100" y="268" width="48" height="24" rx="6" fill="#0072c6" opacity=".9"/>
+    <text x="124" y="283" font-size="9" fill="#fff" font-family="monospace" font-weight="700" text-anchor="middle">D365</text>
+    <rect x="156" y="268" width="48" height="24" rx="6" fill="#c74634" opacity=".9"/>
+    <text x="180" y="283" font-size="9" fill="#fff" font-family="monospace" font-weight="700" text-anchor="middle">ORC</text>
+
+    <!-- PO chip -->
+    <rect x="44" y="302" width="202" height="26" rx="7" fill="#0e0d0b" stroke="#a9eb17" stroke-width="1"/>
+    <text x="145" y="319" font-size="10" fill="#a9eb17" font-family="monospace" font-weight="700" text-anchor="middle">PO PROCESSED IN &lt;3s ⚡</text>
+
+    <!-- Connecting arrows -->
+    <path d="M 278 200 L 330 200" stroke="#a9eb17" stroke-width="2" stroke-dasharray="5 4"/>
+    <polygon points="328,195 340,200 328,205" fill="#a9eb17"/>
+
+    <!-- AI Orchestrator -->
+    <rect x="340" y="100" width="220" height="200" rx="14" fill="#0e0d0b" stroke="#a9eb17" stroke-width="1.5"/>
+    <rect x="340" y="100" width="220" height="38" rx="14" fill="#a9eb17"/>
+    <rect x="340" y="128" width="220" height="10" rx="0" fill="#a9eb17"/>
+    <text x="450" y="127" font-size="12" fill="#1c1a17" font-family="monospace" font-weight="800" text-anchor="middle">AI ORCHESTRATOR</text>
+    <text x="450" y="162" font-size="9" fill="#a9eb17" font-family="monospace" text-anchor="middle" opacity=".8">Data extraction</text>
+    <text x="450" y="178" font-size="9" fill="#a9eb17" font-family="monospace" text-anchor="middle" opacity=".7">Route &amp; validate POs</text>
+    <text x="450" y="194" font-size="9" fill="#a9eb17" font-family="monospace" text-anchor="middle" opacity=".7">Generate quotes</text>
+    <text x="450" y="210" font-size="9" fill="#a9eb17" font-family="monospace" text-anchor="middle" opacity=".7">Synthesise voice</text>
+    <!-- pulse ring -->
+    <circle cx="450" cy="255" r="22" fill="none" stroke="#a9eb17" stroke-width="1" opacity=".3"/>
+    <circle cx="450" cy="255" r="14" fill="none" stroke="#a9eb17" stroke-width="1.5" opacity=".5"/>
+    <circle cx="450" cy="255" r="6" fill="#a9eb17"/>
+
+    <!-- Arrow to voice -->
+    <path d="M 568 200 L 620 200" stroke="#a9eb17" stroke-width="2" stroke-dasharray="5 4"/>
+    <polygon points="618,195 630,200 618,205" fill="#a9eb17"/>
+
+    <!-- Voice panel -->
+    <rect x="630" y="60" width="240" height="280" rx="14" fill="#242220" stroke="#a9eb17" stroke-width="1.5"/>
+    <rect x="630" y="60" width="240" height="44" rx="14" fill="#1c1a17"/>
+    <rect x="630" y="94" width="240" height="10" rx="0" fill="#1c1a17"/>
+    <text x="750" y="90" font-size="12" fill="#a9eb17" font-family="monospace" font-weight="800" text-anchor="middle">VOICE AI</text>
+
+    <!-- Mic icon -->
+    <rect x="728" y="116" width="44" height="56" rx="22" fill="none" stroke="#a9eb17" stroke-width="2"/>
+    <line x1="750" y1="172" x2="750" y2="190" stroke="#a9eb17" stroke-width="2"/>
+    <path d="M 734 186 Q 750 196 766 186" fill="none" stroke="#a9eb17" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- Waveform bars -->
+    <rect x="644" y="212" width="8" height="12" rx="4" fill="#a9eb17" opacity=".4"/>
+    <rect x="656" y="204" width="8" height="28" rx="4" fill="#a9eb17" opacity=".6"/>
+    <rect x="668" y="196" width="8" height="44" rx="4" fill="#a9eb17" opacity=".8"/>
+    <rect x="680" y="208" width="8" height="20" rx="4" fill="#a9eb17" opacity=".6"/>
+    <rect x="692" y="200" width="8" height="36" rx="4" fill="#a9eb17" opacity=".9"/>
+    <rect x="704" y="196" width="8" height="44" rx="4" fill="#a9eb17"/>
+    <rect x="716" y="206" width="8" height="24" rx="4" fill="#a9eb17" opacity=".7"/>
+    <rect x="728" y="200" width="8" height="36" rx="4" fill="#a9eb17" opacity=".5"/>
+    <rect x="740" y="210" width="8" height="16" rx="4" fill="#a9eb17" opacity=".6"/>
+    <rect x="752" y="204" width="8" height="28" rx="4" fill="#a9eb17" opacity=".8"/>
+    <rect x="764" y="212" width="8" height="12" rx="4" fill="#a9eb17" opacity=".5"/>
+    <rect x="776" y="206" width="8" height="24" rx="4" fill="#a9eb17" opacity=".4"/>
+    <rect x="788" y="202" width="8" height="32" rx="4" fill="#a9eb17" opacity=".6"/>
+    <rect x="800" y="210" width="8" height="16" rx="4" fill="#a9eb17" opacity=".4"/>
+    <rect x="812" y="206" width="8" height="24" rx="4" fill="#a9eb17" opacity=".3"/>
+    <rect x="824" y="208" width="8" height="20" rx="4" fill="#a9eb17" opacity=".2"/>
+    <rect x="836" y="210" width="8" height="16" rx="4" fill="#a9eb17" opacity=".15"/>
+    <rect x="848" y="212" width="8" height="12" rx="4" fill="#a9eb17" opacity=".1"/>
+
+    <!-- Language chips -->
+    <rect x="644" y="264" width="202" height="28" rx="7" fill="#0e0d0b" stroke="#a9eb17" stroke-width="1"/>
+    <text x="745" y="281" font-size="10" fill="#a9eb17" font-family="monospace" font-weight="700" text-anchor="middle">12 LANGUAGES · CUSTOM VOICE</text>
+
+    <!-- Live badge -->
+    <circle cx="648" cy="302" r="5" fill="#a9eb17"/>
+    <text x="657" y="307" font-size="9" fill="#a9eb17" font-family="monospace" font-weight="700">LIVE SYNTHESIS</text>
+  </svg>
+</div>
+
+<!-- 3. OVERVIEW -->
+<section class="section" style="padding:6rem 0 4rem;">
+  <div class="container">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start;">
+      <div>
+        <span class="section-tag">What It Does</span>
+        <h2 class="section-heading" style="margin-top:.75rem; margin-bottom:1.5rem;">Automates repetitive sales and procurement workflows</h2>
+        <p style="color:var(--text-muted); line-height:1.8; font-size:.9375rem;">A suite of AI-powered modules that automate the repetitive work across sales and procurement workflows. Generate quotes, process purchase orders, and produce professional voice content — all integrated with existing enterprise systems.</p>
+        <ul style="margin-top:2rem; list-style:none; display:flex; flex-direction:column; gap:1rem;">
+          <li style="display:flex; gap:.875rem; align-items:flex-start;"><span class="highlight-dot"></span><span style="font-size:.9375rem; font-weight:600;">Plug-and-play CRM connectors</span></li>
+          <li style="display:flex; gap:.875rem; align-items:flex-start;"><span class="highlight-dot"></span><span style="font-size:.9375rem; font-weight:600;">Real-time PO validation and processing</span></li>
+          <li style="display:flex; gap:.875rem; align-items:flex-start;"><span class="highlight-dot"></span><span style="font-size:.9375rem; font-weight:600;">Custom voice profiles per brand</span></li>
+        </ul>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+        <div class="feature-card">
+          <h4>Sales Automation</h4>
+          <p>Lead scoring, follow-up sequencing, and automated quote generation.</p>
+        </div>
+        <div class="feature-card">
+          <h4>PO Processing</h4>
+          <p>AI validates and routes purchase orders with error detection in under 3 seconds.</p>
+        </div>
+        <div class="feature-card">
+          <h4>Voice Creation</h4>
+          <p>Text-to-speech with custom brand voices across 12 languages.</p>
+        </div>
+        <div class="feature-card">
+          <h4>CRM Integration</h4>
+          <p>Native connectors for Salesforce, Microsoft Dynamics 365, and Oracle.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. HOW IT WORKS -->
+<section style="padding:4rem 0; background:var(--surface-2);">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:3rem;">
+      <span class="section-tag">How It Works</span>
+      <h2 class="section-heading" style="margin-top:.75rem;">Configure once, automate always</h2>
+    </div>
+    <div style="display:flex; align-items:flex-start; gap:0; max-width:800px; margin:0 auto;">
+      <div style="flex:1; text-align:center; padding:0 1.5rem;">
+        <div style="display:flex; justify-content:center; margin-bottom:1.25rem;"><span class="step-num">1</span></div>
+        <h4 style="font-weight:700; font-size:.9375rem; margin-bottom:.75rem;">Connect Your CRM</h4>
+        <p style="color:var(--text-muted); font-size:.875rem; line-height:1.6;">Authenticate once with Salesforce, Dynamics, or Oracle via OAuth or API key.</p>
+      </div>
+      <div class="step-connector" style="margin-top:1.25rem;"></div>
+      <div style="flex:1; text-align:center; padding:0 1.5rem;">
+        <div style="display:flex; justify-content:center; margin-bottom:1.25rem;"><span class="step-num">2</span></div>
+        <h4 style="font-weight:700; font-size:.9375rem; margin-bottom:.75rem;">Configure Automation Rules</h4>
+        <p style="color:var(--text-muted); font-size:.875rem; line-height:1.6;">Define triggers, routing rules, voice profiles, and PO validation thresholds.</p>
+      </div>
+      <div class="step-connector" style="margin-top:1.25rem;"></div>
+      <div style="flex:1; text-align:center; padding:0 1.5rem;">
+        <div style="display:flex; justify-content:center; margin-bottom:1.25rem;"><span class="step-num">3</span></div>
+        <h4 style="font-weight:700; font-size:.9375rem; margin-bottom:.75rem;">AI Handles the Rest</h4>
+        <p style="color:var(--text-muted); font-size:.875rem; line-height:1.6;">Data extraction, routing, synthesis, and follow-up happen automatically.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. TECH STACK -->
+<section style="padding:4rem 0;">
+  <div class="container" style="text-align:center;">
+    <span class="section-tag">Tech Stack</span>
+    <h2 class="section-heading" style="margin-top:.75rem; margin-bottom:2.5rem;">Built with</h2>
+    <div style="display:flex; flex-wrap:wrap; gap:.75rem; justify-content:center;">
+      <span class="tech-pill">Azure AI Speech</span>
+      <span class="tech-pill">OpenAI API</span>
+      <span class="tech-pill">Python</span>
+      <span class="tech-pill">Node.js</span>
+      <span class="tech-pill">Salesforce API</span>
+      <span class="tech-pill">Microsoft Graph API</span>
+    </div>
+  </div>
+</section>
+
+<!-- 6. CTA BAND -->
+<section style="padding:4rem 0 6rem;">
+  <div class="container">
+    <div class="cta-band">
+      <span class="section-tag" style="color:#7ab800; background:none; padding:0; letter-spacing:.1em;">AI / Sales Automation</span>
+      <h2 class="section-heading" style="color:#fff; margin-top:.75rem; margin-bottom:1rem;">Start a similar project</h2>
+      <p style="color:rgba(255,255,255,.55); font-size:.9375rem; max-width:480px; margin:0 auto 2.5rem; line-height:1.7;">Ready to automate your sales pipeline and voice workflows? Let's build a solution connected to your CRM.</p>
+      <a href="../index.html#contact" class="btn-primary" style="font-size:.9375rem; padding:.9rem 2.25rem;">
+        Get In Touch
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 3l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="../index.html" style="display:flex; align-items:center; text-decoration:none; margin-bottom:1rem;">
+          <img src="../assets/logos/text-and-logo - horizontal.svg" alt="CodeWeavers" style="height:2.375rem; width:auto;" />
+        </a>
+        <p style="color:var(--text-muted); font-size:.875rem; line-height:1.7; max-width:240px;">Custom software solutions for ambitious businesses.</p>
+        <div style="display:flex; gap:.5rem; margin-top:1.25rem;">
+          <a href="https://www.linkedin.com/company/the-code-weavers" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn"><iconify-icon icon="mdi:linkedin" width="16" height="16"></iconify-icon></a>
+          <a href="https://twitter.com/thecodeweavers" target="_blank" rel="noopener" class="social-btn" aria-label="Twitter / X"><iconify-icon icon="mdi:twitter" width="16" height="16"></iconify-icon></a>
+          <a href="https://github.com/thecodeweavers" target="_blank" rel="noopener" class="social-btn" aria-label="GitHub"><iconify-icon icon="mdi:github" width="16" height="16"></iconify-icon></a>
+          <a href="https://www.instagram.com/thecodeweavers" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram"><iconify-icon icon="mdi:instagram" width="16" height="16"></iconify-icon></a>
+        </div>
+      </div>
+      <div>
+        <h5 style="font-family:'Instrument Sans',sans-serif; font-weight:700; font-size:.8125rem; margin-bottom:1rem; text-transform:uppercase; letter-spacing:.06em;">Services</h5>
+        <a href="../index.html#services" class="footer-link">Microsoft Dynamics 365</a>
+        <a href="../index.html#services" class="footer-link">Azure Development</a>
+        <a href="../index.html#services" class="footer-link">Power BI</a>
+        <a href="../index.html#services" class="footer-link">Mobile &amp; ERP</a>
+        <a href="../index.html#services" class="footer-link">AI Solutions</a>
+      </div>
+      <div>
+        <h5 style="font-family:'Instrument Sans',sans-serif; font-weight:700; font-size:.8125rem; margin-bottom:1rem; text-transform:uppercase; letter-spacing:.06em;">Company</h5>
+        <a href="../index.html#about" class="footer-link">About</a>
+        <a href="../projects.html" class="footer-link">All Projects</a>
+        <a href="../index.html#process" class="footer-link">Process</a>
+        <a href="../index.html#testimonials" class="footer-link">Clients</a>
+      </div>
+      <div>
+        <h5 style="font-family:'Instrument Sans',sans-serif; font-weight:700; font-size:.8125rem; margin-bottom:1rem; text-transform:uppercase; letter-spacing:.06em;">Contact</h5>
+        <a href="mailto:vrk@thecodeweavers.com" class="footer-link">vrk@thecodeweavers.com</a>
+        <span class="footer-link" style="cursor:default;">+91 99620 97988</span>
+        <span class="footer-link" style="cursor:default;">Chennai, India</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 The Code Weavers. All rights reserved.</p>
+      <div style="display:flex;gap:1.5rem;"><a href="#" class="footer-bottom-link">Privacy</a><a href="#" class="footer-bottom-link">Terms</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 30) { navbar.classList.add('scrolled'); } else { navbar.classList.remove('scrolled'); }
+  });
+  function openMobileNav() { document.getElementById('mobile-nav').classList.add('open'); }
+  function closeMobileNav() { document.getElementById('mobile-nav').classList.remove('open'); }
+</script>
+</body>
+</html>
